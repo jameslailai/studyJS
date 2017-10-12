@@ -1,0 +1,319 @@
+<!--此案例使用bootstrap3。-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap Javascript 插件</title>
+
+    <!-- Bootstrap -->
+    <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="bootstrap-3.3.7/dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <link rel="stylesheet/less" type="text/css" href="styles.less" />
+
+
+    <style type="text/css">
+        body { position: relative; } /* 此样式的目的参看下面 导航滚动监听 相关内容。 */
+        body { padding-top: 70px; }  /* 此样式的目的参看下面 .navbar-fixed-top 相关内容。确保要放在 core Bootstrap CSS 之后。*/
+        body { padding-bottom: 70px; } /* 同上，此样式的目的参看下面 .navbar-fixed-bottom 相关内容。确保要放在 core Bootstrap CSS 之后。 */
+    </style>
+
+     <!--set options before less.js script-->
+    <script type="text/javascript">
+        less = {
+            env: "development",
+            async: false,
+            fileAsync: false,
+            poll: 1000,
+            functions: {},
+            dumpLineNumbers: "comments",
+            relativeUrls: false,
+            rootpath: ":/a.com/"
+        };
+    </script>
+    <script src="https://cdn.bootcss.com/less.js/3.0.0-pre.4/less.js"></script>
+
+
+
+
+
+
+</head>
+<body data-spy="scroll" data-target="#navbar-example01">
+<h1>你好，Bootstrap Javascript 插件！</h1>
+
+<div class="container">
+
+
+    <!-------------------------------------------------------------->
+    <!--模态框-->
+    <!--
+    .modal：
+    .modal-dialog：
+    .modal-lg、modal-sm：大、小模态框。
+    .modal-content、.modal-header、.modal-title、.modal-body、.modal-footer：
+    .fade：有动画效果。
+    -->
+    <!---->
+    <!-- Button trigger modal -->
+    <br><br><br><br>
+    <h1>模态框</h1>
+    <!--1-->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Launch demo modal（点击试试模态框）（去掉 .fade 可关闭淡入淡出动画效果）
+    </button>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">（模态框title）Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <h4>（模态框内容）</h4><br>
+                    <h4>Text in a modal</h4>
+                    <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+
+                    <h4>Popover in a modal</h4>
+                    <p>This <a href="#" role="button" class="btn btn-default popover-test" title="" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title">button</a> should trigger a popover on click.</p>
+
+                    <h4>Tooltips in a modal</h4>
+                    <p><a href="#" class="tooltip-test" title="" data-original-title="Tooltip">This link</a> and <a href="#" class="tooltip-test" title="" data-original-title="Tooltip">that link</a> should have tooltips on hover.</p>
+
+                    <hr>
+
+                    <h4>（若想在这里添加一个 iframe 放一个视频）</h4>
+                    <p>可参考这里：https://stackoverflow.com/questions/18622508/bootstrap-3-and-youtube-in-modal</p>
+
+                    <hr>
+
+                    <h4>Overflowing text to show scroll behavior</h4>
+                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+
+
+                    <hr>
+
+                    <h4>（加上 row，可使用栅格）</h4>
+                    <div class="row">
+                        <div class="col-md-4" style="background-color: #89bdff">.col-md-4</div>
+                        <div class="col-md-4 col-md-offset-4" style="background-color: #1b809e">.col-md-4 .col-md-offset-4</div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--2-->
+    <!--需要配合后面的javascript脚本（编号：JS20170612-01）-->
+    <br><br><br><br><br>
+    把 data-* 的内容放入模态框里<br>
+    监听模态框的弹出
+    <br>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+    ...more buttons...
+    <br>
+    还有更多的方法：.modal(options)、.modal('toggle')、.modal('show')、.modal('hide')、.modal('handleUpdate')；和更多的事件：show.bs.modal、shown.bs.modal、hide.bs.modal、hidden.bs.modal、loaded.bs.modal
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">Recipient:</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">Message:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Send message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--3-->
+    <!--需要配合后面的javascript脚本（编号：JS20170612-02）-->
+    <br><br><br><br><br>
+    监听下拉
+    <div class="dropdown" id="mydropdown01">
+        <button class="btn btn-primary dropdown-toggle" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown trigger（通过监听 show.bs.dropdown 事件，下拉表单出现前触发一个弹窗）
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dLabel">
+            ...
+        </ul>
+    </div>
+
+
+
+    <!------------------------------------------------------------------------------>
+    <!--导航滚动监听-->
+    <!--
+    需要设 body { position: relative; }
+    需要为 body 元素添加 data-spy="scroll" data-target="#navbar-example" 属性。
+    -->
+    <!--需要配合后面的javascript脚本（编号：JS20170612-03），后来发现貌似滚动监听无需下面的javascript，只要有引入 bootstrap.min.js 就能监听了，可能是我未理解到。参看菜鸟教程http://www.runoob.com/bootstrap/bootstrap-scrollspy-plugin.html-->
+    <br><br><br><br><br>
+    <h1>导航滚动监听</h1>
+    滚动监听都需要被监听的组件是 position: relative; 即相对定位方式。大多数时候是监听 body 元素。
+
+    <!---->
+
+    <div>
+        <nav id="myScrollspy" class="navbar navbar-default navbar-static" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-js-navbar-scrollspy">
+                        <span class="sr-only">切换导航</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">教程名称</a>
+                </div>
+                <div class="collapse navbar-collapse bs-js-navbar-scrollspy">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#ios">iOS</a></li>
+                        <li><a href="#svn">SVN</a></li>
+                        <li class="dropdown">
+                            <a href="#" id="navbarDrop2" class="dropdown-toggle" data-toggle="dropdown">Java
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu" role="menu"
+                                aria-labelledby="navbarDrop2">
+                                <li><a href="#jmeter" tabindex="-1">jmeter</a></li>
+                                <li><a href="#ejb" tabindex="-1">ejb</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#spring" tabindex="-1">spring</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div data-spy="scroll" data-target="#myScrollspy" data-offset="0" style="height:200px;overflow:auto; position: relative;">
+            <div class="section">
+                <h4 id="ios">iOS<small><a href="#" onclick="removeSection(this);">
+                    &times; 删除该部分</a></small>
+                </h4>
+                <p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple
+                    TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
+            </div>
+            <div class="section">
+                <h4 id="svn">SVN<small></small></h4>
+                <p>Apache Subversion，通常缩写为 SVN，是一款开源的版本控制系统软件。Subversion 由 CollabNet 公司在 2000 年创建。但是现在它已经发展为 Apache Software Foundation 的一个项目，因此拥有丰富的开发人员和用户社区。</p>
+            </div>
+            <div class="section">
+                <h4 id="jmeter">jMeter<small><a href="#" onclick="removeSection(this);">
+                    &times; 删除该部分</a></small>
+                </h4>
+                <p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p>
+            </div>
+            <div class="section">
+                <h4 id="ejb">EJB</h4>
+                <p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。</p>
+            </div>
+            <div class="section">
+                <h4 id="spring">Spring</h4>
+                <p>Spring 框架是一个开源的 Java 平台，为快速开发功能强大的 Java 应用程序提供了完备的基础设施支持。</p>
+                <p>Spring 框架最初是由 Rod Johnson 编写的，在 2003 年 6 月首次发布于 Apache 2.0 许可证下。</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+<!--编号：JS20170612-01 -->
+<script type="text/javascript">
+    $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('whatever') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        modal.find('.modal-title').text('New message to ' + recipient)
+        modal.find('.modal-body input').val(recipient)
+    });
+</script>
+
+
+<!--编号：JS20170612-02-->
+<script type="text/javascript">
+    $('#mydropdown01').on('show.bs.dropdown', function (event) {
+        alert("点击下拉触发的");
+    })
+</script>
+
+
+
+<!--编号：JS20170612-03-->
+<script type="text/javascript">
+    $(function(){
+        removeSection = function(e) {
+            $(e).parents(".section").remove();
+            $('[data-spy="scroll"]').each(function () {
+                var $spy = $(this).scrollspy('refresh')
+            });
+        }
+        $("#myScrollspy").scrollspy();
+    });
+</script>
+
+
+
+</body>
+</html>
+
+<!--aboutBootstrapJavascriptPlugin.html-->
