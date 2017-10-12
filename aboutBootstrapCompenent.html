@@ -1,0 +1,1656 @@
+<!--此案例使用bootstrap3。-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 组件</title>
+
+    <!-- Bootstrap -->
+    <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="bootstrap-3.3.7/dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <link rel="stylesheet/less" type="text/css" href="styles.less" />
+
+
+    <style type="text/css">
+        body { padding-top: 70px; }  /* 此样式的目的参看下面 .navbar-fixed-top 相关内容。确保要放在 core Bootstrap CSS 之后。*/
+        body { padding-bottom: 70px; } /* 同上，此样式的目的参看下面 .navbar-fixed-bottom 相关内容。确保要放在 core Bootstrap CSS 之后。 */
+    </style>
+
+     <!--set options before less.js script-->
+    <script>
+        less = {
+            env: "development",
+            async: false,
+            fileAsync: false,
+            poll: 1000,
+            functions: {},
+            dumpLineNumbers: "comments",
+            relativeUrls: false,
+            rootpath: ":/a.com/"
+        };
+    </script>
+    <script src="https://cdn.bootcss.com/less.js/3.0.0-pre.4/less.js"></script>
+
+
+</head>
+<body>
+<h1>你好，Bootstrap 组件！</h1>
+
+<div class="container">
+
+
+    <!----------------------------------------------------------------------->
+    <!--Glyphicons 字体图标-->
+    <!--1-->
+    <br><br><br>
+    <h1>Glyphicons</h1> 字体图标：<br>
+    （出于性能的考虑，所有图标都需要一个基类和对应每个图标的类。）<br>
+    （注意，为了设置正确的内补（padding），务必在图标和文本之间添加一个空格。）<br>
+    （不要和其他组件混合使用。不能在同一个元素上与其他类共同存在。应该创建一个 &lt;span&gt; 标签，并将图标类应用到这个 &lt;span&gt; 标签上。）<br>
+    （只对内容为空的元素起作用。图标类只能应用在不包含任何文本内容或子元素的元素上。）<br>
+    <br>
+    <div class="col-sm-1"><span class="glyphicon glyphicon-asterisk"></span></div>
+    <div class="col-sm-1"><span class="glyphicon glyphicon-plus"></span></div>
+    <div class="col-sm-1"><span class="glyphicon glyphicon-euro"></span></div>
+    <div class="col-sm-1"><span class="glyphicon glyphicon-cloud"></span></div>
+    <div class="col-sm-1"><span class="glyphicon glyphicon-lamp"></span></div>
+    <div class="col-sm-1"><span class="glyphicon glyphicon-hourglass"></span></div>
+    <div class="col-sm-1"><span class="glyphicon glyphicon-random"></span></div>
+    <div class="col-sm-1"><span class="glyphicon glyphicon-menu-right"></span></div>
+    <div class="col-sm-1"><span class="glyphicon glyphicon-chevron-left"></span></div>
+
+
+    <!--2-->
+    <br><br><br><br>
+    （Glyphicons 字体图标，应用到按钮、工具条中的按钮组、导航或输入框等地方）<br>
+    <button type="button" class="btn btn-default" aria-label="左对齐">
+        <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+    </button>
+
+    <button type="button" class="btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+    </button>
+
+    <div class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">错误！（此信息只用于被辅助设备阅读）</span>
+        Enter a valid email address
+    </div>
+
+
+
+    <!----------------------------------------------------------------------->
+    <!--下拉菜单-->
+    <!---->
+    <!--
+    .dropdown-menu-right：指菜单下拉块体靠右，与按钮的 col-*-* 所占空间右对齐。
+    -->
+    <br><br><br>
+    <h1>下拉菜单：</h1>
+    <br><br>
+    （单按钮）<br><br>
+    <div class="clearfix"></div>
+    <div class="dropdown col-sm-6">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            .dropdown 单按钮（下）（下拉块右对齐.dropdown-menu-right）
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+            <li class="dropdown-header">组1</li>
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>  <!--分隔线-->
+            <li class="dropdown-header">组2</li>
+            <li><a href="#">Separated link one</a></li>
+            <li class="disabled"><a href="#">Separated link two （禁用）</a></li>
+        </ul>
+    </div>
+
+    <div class="dropup col-sm-3 col-sm-offset-1 ">
+        <button class="btn btn-default btn-lg dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            .dropup 单按钮（上）（大尺寸）
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+        </ul>
+    </div>
+
+
+    <div class="clearfix"></div>
+    <br><br>
+    （分裂式按钮）
+    <br><br>
+    <div class="clearfix"></div>
+    <div class="dropdown col-sm-3">
+        <!-- Split button -->
+        <div class="btn-group">
+            <button type="button" class="btn btn-default">Action分裂式</button>
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!----------------------------------------------------------------------->
+    <!--按钮组-->
+    <!---->
+    <br><br><br><br><br>
+    <h1>按钮组：一行按钮</h1>
+    <br><br>
+    <!--1-->
+    （基本例子）<br>
+    <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-default">Left</button>
+        <button type="button" class="btn btn-default">Middle</button>
+        <button type="button" class="btn btn-default">Right</button>
+    </div>
+
+
+    <!--2-->
+    <br><br>
+    （按钮组、尺寸、嵌套、垂直排列）<br>
+    <div class="btn-toolbar" role="toolbar" aria-label="...">
+        <!---->
+        <div class="btn-group btn-group-lg" role="group" aria-label="...">
+            <button type="button" class="btn btn-default">Left大</button>
+            <button type="button" class="btn btn-default">Right大</button>
+        </div>
+
+        <!---->
+        <div class="btn-group btn-group-sm" role="group" aria-label="...">
+            <button type="button" class="btn btn-default">one中</button>
+            <button type="button" class="btn btn-default">two中</button>
+            <button type="button" class="btn btn-default">three中</button>
+            <button type="button" class="btn btn-default">four中</button>
+        </div>
+
+        <!---->
+        <div class="btn-group btn-group-xs" role="group" aria-label="...">
+            <button type="button" class="btn btn-default">five小</button>
+            <button type="button" class="btn btn-default">six小</button>
+            <button type="button" class="btn btn-default">seven小</button>
+        </div>
+
+        <!---->
+        <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default btn-lg">eight(单独大号)</button>
+            <button type="button" class="btn btn-default">nine</button>
+        </div>
+
+        <!---->
+        <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default">1</button>
+            <button type="button" class="btn btn-default">2</button>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    （嵌套此下拉）
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Dropdown link</a></li>
+                    <li><a href="#">Dropdown link</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!---->
+        <div class="btn-group-vertical" role="group" aria-label="...">
+            <button type="button" class="btn btn-default">1（垂直排列）</button>
+            <button type="button" class="btn btn-default">2（垂直排列）</button>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    3嵌套（垂直排列）
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Dropdown link 3-1</a></li>
+                    <li><a href="#">Dropdown link 3-2</a></li>
+                </ul>
+            </div>
+            <button type="button" class="btn btn-default">4（垂直排列）</button>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    5嵌套（垂直排列）
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Dropdown link 5-1</a></li>
+                    <li><a href="#">Dropdown link 5-2</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <!--3-->
+    <br><br>
+    （两端对齐排列的按钮组：让一组按钮拉长为相同的尺寸，填满父元素的宽度。）<br>
+    为了将 button 元素用于两端对齐的按钮组中，必须将每个 button 包裹进一个按钮组 .btn-group<br>
+    无需将每个 a 元素包裹进一个按钮组 .btn-group<br>
+    但为了照顾 IE8，无论是 a 或 button 元素，都要每个按钮放入一个按钮组 .btn-group 中。
+    <br><br>
+    <!---->
+    &lt;button&gt;
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default">Left_button</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default">Middle_button</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                嵌套（垂直排列）
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Dropdown link 1</a></li>
+                <li><a href="#">Dropdown link 2</a></li>
+            </ul>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default">Right_button</button>
+        </div>
+    </div>
+    <br>
+
+    &lt;a&gt;
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+        <a class="btn btn-default" href="#">Left_a</a>
+        <a class="btn btn-default" href="#">middle_a</a>
+        <a class="btn btn-default" href="#">right_a</a>
+    </div>
+
+
+    <!----------------------------------------------------------------------->
+    <!--输入框组-->
+    <!---->
+    <br><br><br><br><br>
+    <h1>输入框组</h1>
+    <strong> 通过在文本输入框 input 前面、后面或是两边加上文字或按钮，可以实现对表单控件的扩展。为 .input-group 赋予 .input-group-addon 或 .input-group-btn 类，可以给 .form-control 的前面或后面添加额外的元素。</strong><br>
+    （只支持文本输入框 input。 避免使用 select 元素，因为 WebKit 浏览器不能完全绘制它的样式。 避免使用 textarea 元素，由于它们的 rows 属性在某些情况下不被支持。）<br>
+    （不要和其他组件混用：不要将表单组或栅格列（column）类直接和输入框组混合使用。）
+    <!--1-->
+    <br><br>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">@</span>
+        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+    </div>
+    <br>
+
+    <div class="input-group input-group-sm">
+        <input type="text" class="form-control" placeholder="小尺寸.input-group-sm" aria-describedby="basic-addon2">
+        <span class="input-group-addon" id="basic-addon2">@example.com</span>
+    </div>
+    <br>
+
+    <div class="input-group input-group-lg">
+        <span class="input-group-addon">$</span>
+        <input type="text" class="form-control" placeholder= "大尺寸.input-group-lg" aria-label="Amount (to the nearest dollar)">
+        <span class="input-group-addon">.00</span>
+    </div>
+    <br>
+
+    <label for="basic-url">Your vanity URL</label>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon3">https://example.com/users/</span>
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+    </div>
+    <br><br>
+
+    <!--2-->
+    <!--作为额外元素的多选框和单选框-->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <input type="checkbox" aria-label="...">
+                </span>
+                <input type="text" class="form-control" placeholder="左边那个是作为额外元素的多选框" aria-label="...">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <input type="checkbox" aria-label="...">
+                </span>
+                <input type="text" class="form-control" placeholder="左边那个是作为额外元素的多选框" aria-label="...">
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="input-group">
+                    <span class="input-group-addon">
+                        <input type="radio" name="optionsRadios1" aria-label="...">
+                    </span>
+                <input type="text" class="form-control" placeholder="左边那个是作为额外元素的单选框，组1" aria-label="...">
+            </div>
+            <div class="input-group">
+                    <span class="input-group-addon">
+                        <input type="radio" name="optionsRadios1" aria-label="...">
+                    </span>
+                <input type="text" class="form-control" placeholder="左边那个是作为额外元素的单选框，组1" aria-label="...">
+            </div>
+            <div class="input-group">
+                    <span class="input-group-addon">
+                        <input type="radio" name="optionsRadios1" aria-label="...">
+                    </span>
+                <input type="text" class="form-control" placeholder="左边那个是作为额外元素的单选框，组1" aria-label="...">
+            </div>
+            <div class="input-group">
+                    <span class="input-group-addon">
+                        <input type="radio" name="optionsRadios2" aria-label="...">
+                    </span>
+                <input type="text" class="form-control" placeholder="左边那个是作为额外元素的单选框，组2" aria-label="...">
+            </div>
+            <div class="input-group">
+                    <span class="input-group-addon">
+                        <input type="radio" name="optionsRadios2" aria-label="...">
+                    </span>
+                <input type="text" class="form-control" placeholder="左边那个是作为额外元素的单选框，组2" aria-label="...">
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+
+    <!--3-->
+    <!--作为额外元素的按钮-->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                </span>
+                <input type="text" class="form-control" placeholder="左边那个是作为额外元素的按钮">
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="右边那个是作为额外元素的按钮">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+
+    <!--4-->
+    <!--作为额外元素的按钮式下拉菜单-->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="input-group">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </div>
+                <input type="text" class="form-control" placeholder="左边那个是作为额外元素的按钮式下拉菜单" aria-label="...">
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="右边那个是作为额外元素的按钮式下拉菜单" aria-label="...">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+
+    <!--5-->
+    <!--作为额外元素的分裂式按钮下拉菜单-->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="input-group">
+                <div class="input-group-btn">
+                    <!-- Button and dropdown menu -->
+                    <button type="button" class="btn btn-default">Action分裂式</button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </div>
+                <input type="text" class="form-control" placeholder="左边那个是作为额外元素的分裂式按钮下拉菜单" aria-label="...">
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="右边那个是作为额外元素的分裂式按钮下拉菜单" aria-label="...">
+                <div class="input-group-btn">
+                    <!-- Button and dropdown menu -->
+                    <button type="button" class="btn btn-default">Action分裂式</button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+
+    <!--6-->
+    <!--多个按钮：-->
+    <!--不支持在输入框的单独一侧添加多个额外元素（.input-group-addon 或 .input-group-btn），
+    所以多个按钮需要放入同一个额外元素里，如下。-->
+    <div class="input-group">
+        <div class="input-group-btn">
+            <!-- Buttons -->
+            <button type="button" class="btn btn-default" aria-label="Bold">
+                <span class="glyphicon glyphicon-bold"></span>
+            </button>
+            <button type="button" class="btn btn-default" aria-label="Italic">
+                <span class="glyphicon glyphicon-italic"></span>
+            </button>
+        </div>
+        <input type="text" class="form-control" placeholder="多个按钮：不支持在输入框的单独一侧添加多个额外元素（.input-group-addon 或 .input-group-btn），所以多个按钮需要放入同一个额外元素里。" aria-label="...">
+        <span class="input-group-addon" id="basic-addon4">@example.com</span>
+
+    </div>
+    <br>
+
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="多个按钮：不支持在输入框的单独一侧添加多个额外元素（.input-group-addon 或 .input-group-btn），所以多个按钮需要放入同一个额外元素里。" aria-label="...">
+        <div class="input-group-btn">
+            <!-- Buttons -->
+            <button type="button" class="btn btn-default" aria-label="Help">
+                <span class="glyphicon glyphicon-question-sign"></span>
+            </button>
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action1 <span class="caret"></span></button>
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+            </ul>
+            <button type="button" class="btn btn-default">Action2</button>
+        </div>
+    </div>
+
+
+    <!-------------------------------------------------------------------------------------->
+    <br><br><br><br><br>
+    <h1>导航</h1>
+    如果你在使用导航组件实现导航条功能，务必在 ul 元素 的最外侧的逻辑父元素上添加 role="navigation" 属性，或者用一个 nav 元素包裹整个导航组件。<br>
+    不要将 role 属性添加到 ul 元素上，因为这样可以被辅助设备（残疾人用的）上被识别为一个真正的列表。<br>
+    注意： .nav-tabs 类依赖 .nav 基类。
+    <br><br>
+    <!--1-->
+    （标签页）<br><br>
+    <nav>
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">Profile</a></li>
+            <li role="presentation"><a href="#">Messages</a></li>
+        </ul>
+    </nav>
+
+
+    <!--2-->
+    <br><br><br>
+    （胶囊式标签页）<br><br>
+    <!---->
+    <nav>
+        <ul class="nav nav-pills">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">Profile</a></li>
+            <li role="presentation"><a href="#">Messages</a></li>
+        </ul>
+    </nav>
+
+    <!---->
+    <br><br>
+    <nav>
+        <ul class="nav nav-pills nav-stacked col-sm-8">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">Profile</a></li>
+            <li role="presentation" class="disabled"><a href="#">Messages（禁用，不过只改变外观，不改变功能。需要写 JavaScript 禁用这里的链接）</a>
+            </li>
+            <li role="presentation"><a href="#">Address</a></li>
+            <li role="presentation"><a href="#">Like</a></li>
+        </ul>
+    </nav>
+
+    <!---->
+    <div class="clearfix"></div>
+    <br><br>
+    <nav>
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">Profile</a></li>
+            <li role="presentation"><a href="#">Messages</a></li>
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                   aria-expanded="false">
+                    Dropdown 导航中的下来按钮 <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!---->
+    <div class="clearfix"></div>
+    <br><br>
+    <nav>
+        <ul class="nav nav-pills">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">Profile</a></li>
+            <li role="presentation"><a href="#">Messages</a></li>
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                   aria-expanded="false">
+                    Dropdown 导航中的下来按钮 <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+
+
+    <!---------------------------------------------------------------------------------------------------------->
+    <br><br><br><br>
+    <h1>导航条</h1>
+    导航条：包含了导航、表单等。<br>
+    务必使用 nav 元素，或者，如果使用的是通用的 div 元素的话，务必为导航条设置 role="navigation" 属性，这样能够让使用辅助设备的用户明确知道这是一个导航区域。<br>
+    <br><br>
+    <!--1-->
+    brand位置<br>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Brand品牌</a>
+            </div>
+        </div>
+    </nav>
+
+    <!--2-->
+    brand位置（使用图片）<br>
+    <!--航条内放置品牌标志的地方，由于 .navbar-brand 已经被设置了内补（padding）和高度（height），你需要根据自己的情况添加一些 CSS 代码从而覆盖默认设置-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img alt="Brand" src="img/brand.png" style="position:relative; width: 30px; top: -4px; ">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!--3-->
+    <!--
+    .navbar-nav 导航条里的导航 （注意这里不用上面导航的 .nav-tabs 或 .nav-pills ）。
+    .navbar-form 导航条里的表单 ，可以呈现很好的垂直对齐，并在较窄的视口中呈现折叠状态。
+    .navbar-btn 可以被用在 <a> 和 <input> 元素上。然而，在 .navbar-nav 内，.navbar-btn 和标准的按钮类都不应该被用在 <a> 元素上。
+    .navbar-left、 navbar-right 导航条里的表单 的位置。
+    .navbar-text 把文本包裹在 .navbar-text中时，为了有正确的行距和颜色，通常使用 <p> 标签。
+    .navbar-link 若想在导航栏里的导航组件之外添加标准链接，而不使用按钮等，那么，使用 .navbar-link 类可以让链接有正确的默认颜色和反色设置
+    .navbar-fixed-top、 .navbar-fixed-bottom 让导航条固定在顶部，还可包含一个 .container 或 .container-fluid 容器，从而让导航条居中，并在两侧添加内补（padding）。这个固定的导航条会遮住页面上的其它内容，要给 body 元素设置 padding-top。
+    .navbar-inverse 导航条反色。
+    -->
+    导航条里的组件 及 对齐（使用图片）<br>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand 品牌 -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand品牌</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav"><!---->
+                    <li class="active"><a href="#">Link1 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">Link2</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Drop <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!--导航条内的表单form-->
+                <form class="navbar-form navbar-left"> <!---->
+                    <div class="form-group">
+                        <label class="sr-only" for="jamesId1">导航条里的表单（辅助设备只读）</label>
+                        <input type="text" class="form-control" id="jamesId1" placeholder="导航条里的表单..">
+                    </div>
+                    <button type="submit" class="btn btn-default">提交（form内）</button>
+                </form>
+                <button type="submit" class="btn btn-default navbar-btn">提交（form外，用.navbar-btn水平居中）</button>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Link3</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Drop <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <!--4-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand 品牌 -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand品牌</a>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <p class="navbar-text navbar-right">文本（包裹在 .navbar-text中，通常用 p 元素） <a href="#" class="navbar-link">非导航的链接（在导航栏里的导航组件之外添加标准的链接，.navbar-link）</a></p>
+            </div>
+        </div>
+    </nav>
+
+
+    <!--5-->
+    <!--导航条固定在顶部-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class=" container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand品牌</a>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <p class="navbar-text navbar-right">导航条固定在顶部（.navbar-fixed-top）</p>
+            </div>
+        </div>
+    </nav>
+
+
+    <!--6-->
+    <!--导航条固定在底部-->
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand品牌</a>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <p class="navbar-text navbar-right">导航条固定在底部（.navbar-fixed-bottom），可包裹一个 .container 容器，从而让导航条居中</p>
+            </div>
+        </div>
+    </nav>
+
+
+    <!--7-->
+    <!--导航条反色-->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand品牌</a>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <p class="navbar-text navbar-right">导航条反色（.navbar-inverse）</p>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!---------------------------------------------------------------------------------->
+    <!--分页-->
+    <!--
+    .pagination：
+    .pagination-lg 、.pagination-sm：
+    .pager：翻页。可包裹 .previous、.next 实现两端对齐。
+    -->
+    <!--1-->
+    <br><br><br><br>
+    <h1>分页</h1>
+    <br>
+    用 a 元素（即使设置了.disabled，只是样式上显示禁用，但仍能被点击。）
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="前一页">
+                    <span aria-hidden="true">&laquo; 前一页</span>
+                </a>
+            </li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="下一页">
+                    <span aria-hidden="true">下一页 &raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    用 span 元素（建议用 span 标签，因为这样能保持需要的样式而且避免被点击）
+    <nav aria-label="Page navigation">
+        <ul class="pagination pagination-lg">
+            <li>
+                <span>
+                    <span aria-hidden="true">&laquo; 前一页</span>
+                </span>
+            </li>
+            <li class="active"><span>1<span class="sr-only">(current)</span></span></li>
+            <li><span>2</span></li>
+            <li><span>3</span></li>
+            <li><span>4</span></li>
+            <li><span>5</span></li>
+            <li class="disabled">
+                <span>
+                    <span aria-hidden="true">下一页（禁用） &raquo;</span>
+                </span>
+            </li>
+        </ul>
+    </nav>
+
+
+    <!--2-->
+    简单翻页<br>
+    <nav aria-label="简单翻页">
+        <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#">Next</a></li>
+        </ul>
+    </nav>
+
+
+
+
+    <!--3-->
+    简单翻页（两端对齐）<br>
+    <nav aria-label="...">
+        <ul class="pager">
+            <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Previous</a></li>
+            <li class="next"><a href="#">Next <span aria-hidden="true">&rarr;</span></a></li>
+        </ul>
+    </nav>
+
+
+
+    <!--4-->
+    可选的禁用状态
+    <nav aria-label="...">
+        <ul class="pager">
+            <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Previous（禁用）</a></li>
+            <li class="next"><a href="#">Next <span aria-hidden="true">&rarr;</span></a></li>
+        </ul>
+    </nav>
+
+
+
+
+
+    <!--------------------------------------------------------------------------->
+    <!--标签-->
+    <!---->
+    <br><br><br><br><br>
+    <h1>标签</h1>
+    <h2>Example heading <span class="label label-default">New（标签）</span></h2>
+    <h3>Example heading <span class="label label-default">New（标签）</span></h3>
+    <h4>Example heading <span class="label label-default">New（标签）</span></h4>
+    <h5>Example heading <span class="label label-default">New（标签）</span></h5>
+    <br><br>
+
+
+    <!--标签外观-->
+    <span class="label label-default">Default</span>
+    <span class="label label-primary">Primary</span>
+    <span class="label label-success">Success</span>
+    <span class="label label-info">Info</span>
+    <span class="label label-warning">Warning</span>
+    <span class="label label-danger">Danger</span>
+    <br><br>
+    （如果你有 <strong class="h4">大量</strong> 的设置为 inline 属性的标签全部放在一个较窄的容器元素内，在页面上展示这些标签就会出现问题，每个标签就会有自己的一个 inline-block 元素（就像图标一样）。解决的办法是为每个标签都设置为 display: inline-block; 属性。）
+    <br>
+
+
+
+
+    <!------------------------------------------------------------------------>
+    <!--徽章-->
+    <br><br><br><br><br>
+    <h1>徽章</h1>
+
+    <!--1-->
+    <br>
+    <a href="#">Inbox <span class="badge">42</span></a>
+
+    <!--2-->
+    <button class="btn btn-primary" type="button">
+        未读信息 <span class="badge">4</span>
+    </button>
+
+    <!--3-->
+    <br><br><br>
+    （处于激活、未激活、无数据等状态，bootstrap 都有相应的徽章外观）（如果没有新的或未读的信息条目，也就是说不包含任何内容，徽章组件能够自动隐藏。）
+    <ul class="nav nav-pills" role="tablist">
+        <li role="presentation" class="active"><a href="#">Home <span class="badge">42</span></a></li>
+        <li role="presentation"><a href="#">Profile <span class="badge"></span></a></li>
+        <li role="presentation"><a href="#">Messages <span class="badge">3</span></a></li>
+    </ul>
+
+    <br><br>
+
+
+
+
+    <!-------------------------------------------------------------------------->
+    <!--巨幕-->
+    <!--
+    .jumbotron：巨幕
+    -->
+    <br><br><br><br>
+    <h1>巨幕</h1>
+    <div class="jumbotron">
+        <h1>巨幕</h1>
+        <p>如果需要让巨幕组件的宽度与浏览器宽度一致并且没有圆角，请把此组件放在所有 .container 元素的外面，并在组件内部添加一个 .container 元素。如下。</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+        &lt;div class="jumbotron"&gt;
+            &lt;div class="container"&gt;
+                ...
+            &lt;/div&gt;
+        &lt;/div&gt;
+    </div>
+
+
+
+
+    <!--------------------------------------------------------------------------->
+    <!--页头-->
+    <br><br><br><br>
+    <h1>页头</h1>
+    <div class="page-header">
+        <h1>页头能为 h1 标签增加适当的空间并加分隔线 <small>它支持 h1 内嵌 small 元素的默认效果</small></h1>
+    </div>
+
+
+
+
+    <!--------------------------------------------------------------------------->
+    <!--缩略图-->
+    <!--
+    .thumbnail：有线框包围的缩略图外观。
+    .caption：添加额外的标签，就可以把任何类型的 HTML 内容，例如标题、段落或按钮，加入缩略图组件内。
+    -->
+    <br><br><br><br>
+    <h1>缩略图</h1>
+
+    <!--1-->
+    （缩略图组件扩展 Bootstrap 的 栅格系统，可以很容易地展示栅格样式的图像、视频、文本等内容。）
+    <div class="row">
+        <div class="col-xs-6 col-md-3">
+            <a href="#" class="thumbnail">
+                <img src="img\demo1.jpg" alt="...">
+            </a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <a href="#" class="thumbnail">
+                <img src="img\demo1.jpg" alt="...">
+            </a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <a href="#" class="thumbnail">
+                <img src="img\demo1.jpg" alt="...">
+            </a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <a href="#" class="thumbnail">
+                <img src="img\demo1.jpg" alt="...">
+            </a>
+        </div>
+        ...
+    </div>
+
+
+    <!--2-->
+    （添加额外的标签，就可以把任何类型的 HTML 内容，例如标题、段落或按钮，加入缩略图组件内。）
+    <div class="row">
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="img\demo1.jpg" alt="...">
+                <div class="caption">
+                    <h3>Thumbnail label</h3>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p>
+                        <a href="#" class="btn btn-primary" role="button">Button</a>
+                        <a href="#" class="btn btn-default" role="button">Button</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--------------------------------------------------------------------------->
+    <!--警告框-->
+    <!--
+    依赖 .alert 类。
+    .alert-dismissible：添加此可选类，并包裹一个关闭按钮，那么此警告框可以关闭。为确保在所有设备上的正确行为，务必给 <button> 元素添加 data-dismiss="alert" 属性。
+    -->
+    <br><br><br><br>
+    <h1>警告框</h1>
+
+    <!--1-->
+    <div class="alert alert-success" role="alert">Well done! You successfully read this important alert message.（成功）<a href="#" class="alert-link">警告框里可加上链接，点我</a></div>
+    <div class="alert alert-info" role="alert">Heads up! This alert needs your attention, but it's not super important.（消息）</div>
+    <div class="alert alert-warning" role="alert">Warning! Better check yourself, you're not looking too good.（警告）</div>
+    <div class="alert alert-danger" role="alert">Oh snap! Change a few things up and try submitting again.（危险）</div>
+
+
+    <!--2-->
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="关闭"><span aria-hidden="true">&times;</span></button>
+        <strong>Warning!</strong> Better check yourself, you're not looking too good.（此警告框可关闭，点右边关闭按钮）
+    </div>
+
+
+
+    <!--------------------------------------------------------------------------->
+    <!--进度条-->
+    <!--
+    .progress：
+    .progress-bar：
+    .min-width：在展示很低的百分比时，为了让文本提示能够清晰可见，可为进度条设置 min-width
+    .progress-bar-striped：条纹效果
+    .active：动画效果
+    -->
+    <br><br><br><br>
+    <h1>进度条</h1>
+
+    <!--1-->
+    <br><br>
+    （基本）
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+            <span class="sr-only">完成了60%</span>
+        </div>
+    </div>
+
+
+    <!--2-->
+    <br>
+    （显示文本）
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+            完成了60%
+        </div>
+    </div>
+
+
+    <!--3-->
+    <br><br>
+    （设置了最小宽度 min-width）
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 5em;">
+            完成了0%
+        </div>
+    </div>
+
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 5em; width: 2%;">
+            完成了2%
+        </div>
+    </div>
+
+
+    <!--4-->
+    <br><br>
+    （情境效果：成功、消息、警告、危险）（条纹效果）
+    <div class="progress">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+            <span>40% Complete（.progress-bar-success）</span>
+        </div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+            <span>20% Complete（.progress-bar-info）</span>
+        </div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+            <span>60% Complete（.progress-bar-warning .progress-bar-striped）（条纹效果）</span>
+        </div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+            <span>80% Complete（.progress-bar-danger .progress-bar-striped）（条纹效果）</span>
+        </div>
+    </div>
+
+
+    <!--5-->
+    <br><br>
+    （动画效果）
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+            <span>45% Complete（.active）（动画效果）</span>
+        </div>
+    </div>
+
+
+    <!--6-->
+    <br><br>
+    （堆叠效果：把多个进度条放入同一个 .progress 中，呈现堆叠的效果）
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+            <span>35% Complete</span>
+        </div>
+        <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%">
+            <span>25% Complete</span>
+        </div>
+        <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" style="width: 15%">
+            <span>15% Complete</span>
+        </div>
+    </div>
+
+
+
+    <!------------------------------------------------------------------------------>
+    <!--媒体对象-->
+    <!--
+    .media：
+    .media-left：.media-left 应当放在 .media-body 的前面。
+    .media-body：
+    .media-right：.media-right 应当放在 .media-body 的后面。
+    .media-list：媒体对象列表
+    -->
+    <br><br><br><br><br>
+    <h1>媒体对象</h1>
+    <!---->
+
+    <!--1-->
+    <br><br>
+    <div>（基本形式）</div>
+    <br>
+
+
+    <div class="col-sm-6">
+        <div class="media">
+            <div class="media-left">
+                <a href="#">
+                    <img class="media-object" src="img\demo1.jpg" alt="..." style="width: 64px">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">1 Media heading（媒体对象默认顶部对齐）</h4>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+        </div>
+
+        <div class="media">
+            <div class="media-left">
+                <a href="#">
+                    <img class="media-object" src="img\demo1.jpg" alt="..." style="width: 64px">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">2 Media heading</h4>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object" src="img\demo1.jpg" alt="..." style="width: 64px">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">2-1 Media heading</h4>
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                    </div>
+                </div>
+
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object" src="img\demo1.jpg" alt="..." style="width: 64px">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">2-2 Media heading</h4>
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="media">
+                <div class="media-body">
+                    <h4 class="media-heading">3 Media heading</h4>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+                <div class="media-right">
+                    <a href="#">
+                        <img class="media-object" src="img\demo1.jpg" alt="..." style="width: 64px">
+                    </a>
+                </div>
+            </div>
+
+            <div class="media">
+                <div class="media-body">
+                    <h4 class="media-heading">4 Media heading</h4>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+                <div class="media-right">
+                    <a href="#">
+                        <img class="media-object" src="img\demo1.jpg" alt="..." style="width: 64px">
+                    </a>
+                </div>
+            </div>
+
+            <div class="media">
+                <div class="media-left media-middle">
+                    <a href="#">
+                        <img class="media-object" src="img\demo1.jpg" alt="..." style="width: 64px">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">7 Media heading（媒体对象居中 .media-middle）</h4>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+            </div>
+
+            <div class="media">
+                <div class="media-left media-bottom">
+                    <a href="#">
+                        <img class="media-object" src="img\demo1.jpg" alt="..." style="width: 64px">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">8 Media heading（媒体对象底部对齐 .media-bottom）</h4>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <!--2-->
+    <br><br><br><br><br><br>
+    <div>（媒体对象列表 形式：使用 ul、li 元素和 .media-list）</div>
+    <br>
+
+    <div>
+        <ul class="media-list col-sm-6">
+
+            <li class="media">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object" src="img\demo1.jpg" alt="..." style="width: 64px">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">1 Media heading（li）</h4>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+            </li>
+
+            <li class="media">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object" src="img\demo1.jpg" alt="..." style="width: 64px">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">2 Media heading（li）</h4>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="#">
+                                <img class="media-object" src="img\demo1.jpg" alt="..." style="width: 64px">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">2-1 Media heading（div）</h4>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        </div>
+                    </div>
+
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="#">
+                                <img class="media-object" src="img\demo1.jpg" alt="..." style="width: 64px">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">2-2 Media heading（div）</h4>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="img\demo1.jpg" alt="..." style="width: 64px">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">2-2-1 Media heading（div）</h4>
+                                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="media">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object" src="img\demo1.jpg" alt="..." style="width: 64px">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">3 Media heading（li）</h4>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="clearfix"></div>
+
+
+    <!--------------------------------------------------------------------------->
+    <!--列表组-->
+    <!--
+    .list-group：
+    .list-group-item：
+    .list-group-item-success、 .list-group-item-info、 .list-group-item-warning、 .list-group-item-danger：
+    .list-group-item-heading、list-group-item-text：
+    -->
+    <br><br><br><br>
+    <h1>列表组</h1>
+    <br><br>
+
+
+    <!--1-->
+    （基本 li 的列表组）<br><br>
+    <!---->
+    <div>
+        <ul class="list-group">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+        </ul>
+    </div>
+
+
+    <!--2-->
+    <br><br><br><br>
+    （给列表组加入 徽章 组件）<br><br>
+    <!---->
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="badge">13</span>
+            Dapibus ac facilisis in（右边有徽章组件）
+        </li>
+        <li class="list-group-item">
+            <span class="badge">8</span>
+            Cras justo odio
+        </li>
+    </ul>
+
+
+    <!--3-->
+    <br><br><br><br>
+    （链接 a 的列表组）<br><br>
+    <!---->
+    <div class="list-group">
+        <a href="#" class="list-group-item">Cras justo odio （链接）</a>
+        <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+        <a href="#" class="list-group-item">Morbi leo risus</a>
+        <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+        <a href="#" class="list-group-item">Vestibulum at eros</a>
+    </div>
+
+
+    <!--4-->
+    <br><br><br><br>
+    （按钮 button 的列表组：注意不要使用标准的 .btn 类）<br><br>
+    <!---->
+    <div class="list-group">
+        <button type="button" class="list-group-item">Cras justo odio （按钮）</button>
+        <button type="button" class="list-group-item">Dapibus ac facilisis in</button>
+        <button type="button" class="list-group-item">Morbi leo risus</button>
+        <button type="button" class="list-group-item">Porta ac consectetur ac</button>
+        <button type="button" class="list-group-item">Vestibulum at eros</button>
+    </div>
+
+
+    <!--5-->
+    <br><br><br><br>
+    （情境类）<br><br>
+    <!---->
+    <div class="list-group">
+        <button type="button" class="list-group-item active">（.active）</button>
+        <button type="button" class="list-group-item list-group-item-success">（.list-group-item-success）</button>
+        <button type="button" class="list-group-item list-group-item-info">（.list-group-item-info）</button>
+        <button type="button" class="list-group-item list-group-item-warning">（.list-group-item-warning）</button>
+        <button type="button" class="list-group-item list-group-item-danger">（.list-group-item-danger）</button>
+        <button type="button" class="list-group-item disabled">（禁用 .disabled）</button>
+    </div>
+
+
+
+    <!--6-->
+    <br><br><br><br>
+    （自定义：列表组中的每个元素内都可以是任何 HTML 内容）<br><br>
+    <!---->
+    <div class="list-group">
+        <a href="#" class="list-group-item">
+            <h4 class="list-group-item-heading">List group item heading（.list-group-item-heading）</h4>
+            <p class="list-group-item-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.（.list-group-item-text） </p>
+        </a>
+        <a href="#" class="list-group-item">
+            <h4 class="list-group-item-heading">Dapibus ac facilisis in</h4>
+            <p class="list-group-item-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. </p>
+        </a>
+        <a href="#" class="list-group-item">Morbi leo risus</a>
+    </div>
+
+
+
+
+    <!--------------------------------------------------------------------------->
+    <!--面板-->
+    <!--
+    .panel：
+    .panel-body：
+    .panel-default：
+    .panel-heading：
+    .panel-title：
+    .panel-footer：
+    .panel-primary、 .panel-success、 .panel-info、 .panel-warning、 .panel-danger：情景外观
+    -->
+    <br><br><br><br>
+    <h1>面板</h1>
+    （虽然不总是必须，但是某些时候你可能需要将某些 DOM 内容放到一个盒子里。对于这种情况，可以试试面板组件。）
+    <br><br><br><br>
+
+
+    <!--1-->
+    （基本）
+    <br><br>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            面板内容（.panel-body）
+        </div>
+    </div>
+
+
+
+    <!--2-->
+    <br><br><br><br>
+    （带标题、注脚的面版）
+    <br><br>
+    <div class="panel panel-default">
+        <div class="panel-heading">标题 （.panel-heading 不包含 .panel-title）</div>
+        <div class="panel-body">
+            内容（.panel-body）
+        </div>
+        <div class="panel-footer">脚注（.panel-footer）</div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">标题 （.panel-heading 包含 .panel-title）</h3>
+        </div>
+        <div class="panel-body">
+            内容（.panel-body）
+        </div>
+        <div class="panel-footer">脚注（.panel-footer）</div>
+    </div>
+
+
+
+
+    <!--3-->
+    <br><br><br><br>
+    （情景）
+    <br><br>
+    <div class="panel panel-primary">
+        <div class="panel-heading">标题 Panel title</div>
+        <div class="panel-body">内容 Panel content</div>
+        <div class="panel-footer">脚注 panel-footer</div>
+    </div>
+    <div class="panel panel-success">
+        <div class="panel-heading">标题 Panel title</div>
+        <div class="panel-body">内容 Panel content</div>
+        <div class="panel-footer">脚注 panel-footer</div>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">标题 Panel title</div>
+        <div class="panel-body">内容 Panel content</div>
+        <div class="panel-footer">脚注 panel-footer</div>
+    </div>
+    <div class="panel panel-warning">
+        <div class="panel-heading">标题 Panel title</div>
+        <div class="panel-body">内容 Panel content</div>
+        <div class="panel-footer">脚注 panel-footer</div>
+    </div>
+    <div class="panel panel-danger">
+        <div class="panel-heading">标题 Panel title</div>
+        <div class="panel-body">内容 Panel content</div>
+        <div class="panel-footer">脚注 panel-footer</div>
+    </div>
+
+
+
+
+    <!--4-->
+    <br><br><br><br>
+    （带表格、列表的面版）
+    <br><br>
+    <div class="panel panel-default">
+        <div class="panel-heading">Panel heading</div>
+        <div class="panel-body">
+            <p>Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+        </div>
+
+        <!-- Table -->
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <thead>
+            <tr>
+                <th>表格</th>
+                <th>Month</th>
+                <th>Savings</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+            <tr>
+                <th>1</th>
+                <td>January</td>
+                <td>$100</td>
+            </tr>
+            <tr>
+                <th>2</th>
+                <td>February</td>
+                <td>$200</td>
+            </tr>
+            <tr>
+                <th>3</th>
+                <td>March</td>
+                <td>$300</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th></th>
+                <td><strong>Total</strong></td>
+                <td><strong>$600</strong></td>
+            </tr>
+            </tfoot>
+        </table>
+
+
+        <div class="panel-body">
+            <p>Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+        </div>
+
+
+        <!--list-->
+        <ul class="list-group">
+            <li class="list-group-item">列表 Cras justo odio</li>
+            <li class="list-group-item">列表 Dapibus ac facilisis in</li>
+            <li class="list-group-item">列表 Morbi leo risus</li>
+            <li class="list-group-item">列表 Porta ac consectetur ac</li>
+            <li class="list-group-item">列表 Vestibulum at eros</li>
+        </ul>
+
+
+        <div class="panel-footer">Some default panel content here. Nulla vitae elit libero, a pharetra augue.  panel-footer</div>
+
+    </div>
+
+
+
+    <!------------------------------------------------------------------------------>
+    <!--具有响应式特性的嵌入内容-->
+    <br><br><br><br><br><br>
+    <h1>具有响应式特性的嵌入内容 iframe </h1>
+    （超级提示： 不需要为 iframe 元素设置 frameborder="0" 属性，因为我们已经替你这样做了！）
+    <br><br><br><br>
+    <!-- 16:9 aspect ratio -->
+    （16:9）
+    <div class="embed-responsive embed-responsive-16by9" style="border: 1px black solid; margin-top: 15px;">
+        <iframe class="embed-responsive-item" src="http://v3.bootcss.com/" allowfullscreen></iframe>
+    </div>
+
+    <!-- 4:3 aspect ratio -->
+    <br><br><br><br>
+    （4:3）
+    <div class="embed-responsive embed-responsive-4by3" style="border: 1px black solid; margin-top: 15px;">
+        <iframe class="embed-responsive-item" src="http://v3.bootcss.com/"></iframe>
+    </div>
+
+</div>
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+<!--aboutBootstrapCompenent.html-->
