@@ -1,0 +1,173 @@
+﻿<!--此案例使用bootstrap3。-->
+<!--myworking-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>番茄闹钟</title>
+
+
+    <link href="myworkingForCodepen.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="bootstrap-3.3.7/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet">
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+
+
+    <script>
+
+
+        var app = angular.module('clockTimer', []);
+
+        app.controller("myCtrl",function ($scope, $interval){
+            var isOnOrOff = 0; // 0 代表当前是停止中，1 代表当前是计时中
+            var status = 1; // 1 代表当前是工作计时（session）阶段，0 代表当前是休息计时（break）阶段，
+            var sessionMin = 1; // 工作session时长
+            var breakMin = 1; // 休息break时长
+            var startSec = 0;
+            var startMin = sessionMin;
+            var mytimer = null;
+            $scope.display = [];
+            $scope.timeLeft = '';
+            $scope.sessionName = '';
+
+
+
+
+
+            function inte() {
+                //周期性执行
+                mytimer = $interval(function () {
+
+                    if(status === 0){
+                        $scope.sessionName = "Break";
+                    }
+                    if(status === 1){
+                        $scope.sessionName = "Session";
+                    }
+
+                    //倒计时
+                    if(startSec !== 0){
+                        startSec--;
+                    }
+                    else{
+                        if(startMin !== 0){
+                            startMin--;
+                            startSec=59;
+                        }
+                        else{
+                            if(status === 1){
+                                startMin = breakMin-1;
+                                startSec = 59;
+                                status = 0;
+                            }
+                            else if(status === 0){
+                                startMin = sessionMin-1;
+                                startSec = 59;
+                                status = 1;
+                            }
+                        }
+                    }
+                    $scope.timeLeft = startMin + ":" + startSec;
+
+
+                    console.info("周期执行中.." + $scope.timeLeft + " " + $scope.sessionName);
+
+                },100);
+
+            }
+
+
+
+
+
+            document.getElementById("pomodoro").onclick = function () {
+                if(isOnOrOff===1){
+                    $interval.cancel(mytimer);
+                    isOnOrOff = 0;
+                }
+                else if(isOnOrOff===0){
+                    inte();
+                    isOnOrOff = 1;
+                }
+
+            };
+
+
+
+        });
+
+
+
+        $(document).ready(function () {
+
+        });
+
+    </script>
+
+
+</head>
+<body>
+
+
+<div id="main" class="container" data-ng-app="clockTimer">
+    <div class="row">
+        <h1 class="col-xs-12">FreeCodeCamp</h1>
+        <p class="col-xs-6">
+            BREAK LENGTH
+        </p>
+        <p class="col-xs-6">
+            SESSION LENGTH
+        </p>
+        <div id="breakLen" class="col-xs-6">
+            <div class="row">
+                <button class="col-xs-1">-</button>
+                <div class="col-xs-10">BREAK LENGTH</div>
+                <button class="col-xs-1">+</button>
+            </div>
+        </div>
+        <div id="sessionLen" class="col-xs-6">
+            <div class="row">
+                <button class="col-xs-1">-</button>
+                <div class="col-xs-10">SESSION LENGTH</div>
+                <button class="col-xs-1">+</button>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div id="pomodoro">
+                <div class="row">
+                    <div ng-controller="myCtrl" class="col-xs-12">
+                        {{sessionName}}
+                    </div>
+                    <div ng-controller="myCtrl" class="col-xs-12" >
+                        {{timeLeft}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
