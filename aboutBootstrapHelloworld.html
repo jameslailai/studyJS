@@ -1,0 +1,1474 @@
+﻿<!--此案例使用bootstrap3。-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="bootstrap-3.3.7/dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+    <link rel="stylesheet/less" type="text/css" href="styles.less" />
+     <!--set options before less.js script-->
+    <script>
+        less = {
+            env: "development",
+            async: false,
+            fileAsync: false,
+            poll: 1000,
+            functions: {},
+            dumpLineNumbers: "comments",
+            relativeUrls: false,
+            rootpath: ":/a.com/"
+        };
+    </script>
+    <script src="https://cdn.bootcss.com/less.js/3.0.0-pre.4/less.js"></script>
+
+
+</head>
+<body>
+<h1>你好，世界！</h1>
+
+<div class="container">
+    <!--<div class="row-fluid">-->
+        <!--<div class="span6">-->
+            <!--abc-->
+        <!--</div>-->
+        <!--<div class="span6">-->
+            <!--def-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+    <!-------------------------->
+    <!--栅格-->
+    <h1>栅格</h1>
+    <br>
+    <div class="row">
+        <div class="col-xs-1 col-md-1" style="background-color: #9acfea;">.col-md-1</div>
+        <div class="col-xs-1 col-md-1" style="background-color: #9acfea;">.col-md-1</div>
+        <div class="col-xs-1 col-md-1" style="background-color: #9acfea;">.col-md-1</div>
+        <div class="col-xs-1 col-md-1" style="background-color: #9acfea;">.col-md-1</div>
+        <div class="col-xs-1 col-md-1" style="background-color: #9acfea;">.col-md-1</div>
+        <div class="col-xs-1 col-md-1" style="background-color: #9acfea;">.col-md-1</div>
+        <div class="col-xs-1 col-md-1" style="background-color: #9acfea;">.col-md-1</div>
+        <div class="col-xs-1 col-md-1" style="background-color: #9acfea;">.col-md-1</div>
+        <div class="col-xs-1 col-md-1" style="background-color: #9acfea;">.col-md-1</div>
+        <div class="col-xs-1 col-md-1" style="background-color: #9acfea;">.col-md-1</div>
+        <div class="col-xs-1 col-md-1" style="background-color: #9acfea;">.col-md-1</div>
+        <div class="col-xs-1 col-md-1" style="background-color: #9acfea;">.col-md-1</div>
+    </div>
+    <br>
+
+
+    <!---------------------------->
+    <!---->
+    <br><br>
+    基本
+    <div class="row">
+        <div class="col-md-8">.col-md-8</div>
+        <div class="col-md-4">.col-md-4</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4">.col-md-4</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">.col-md-6</div>
+        <div class="col-md-6">.col-md-6</div>
+    </div>
+
+
+    <!---------------------------->
+    <!--手机xs、平板sm、桌面md-->
+    <!---->
+    <br><br>
+    手机xs、平板sm、桌面md.
+    <br>
+    默认向下继承，即没设置 md 则 参照 sm
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-8" style="background-color: #89bdff">.col-xs-12 .col-sm-6 .col-md-8</div>
+        <div class="col-xs-6 col-sm-6 col-md-4" style="background-color: #1b809e">.col-xs-6 .col-md-4</div>
+    </div>
+
+    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+    <div class="row">
+        <div class="col-xs-6 col-md-4" style="background-color: #4f9fcf">.col-xs-6 .col-md-4</div>
+        <div class="col-xs-6 col-md-4" style="background-color: #337ab7">.col-xs-6 .col-md-4</div>
+        <div class="col-xs-6 col-md-4" style="background-color: #4f9fcf">.col-xs-6 .col-md-4</div>
+    </div>
+
+    <!-- Columns are always 50% wide, on mobile and desktop -->
+    <div class="row">
+        <div class="col-xs-6" style="background-color: #89bdff">.col-xs-6</div>
+        <div class="col-xs-6" style="background-color: #1b809e">.col-xs-6</div>
+    </div>
+
+
+
+
+    <!-------------------------------->
+    <!--列重置：即clear-->
+    <!---->
+    <br><br>
+    列重置：即clear
+    <div class="row">
+        <div class="col-xs-6 col-sm-3" style="background-color: #89bdff">.col-xs-6 .col-sm-3 Resize your viewport or check it out on your phone for an example.</div>
+        <div class="col-xs-6 col-sm-3" style="background-color: #1b809e">.col-xs-6 .col-sm-3</div>
+        <div class="col-xs-6 col-sm-3" style="background-color: #89bdff">.col-xs-6 .col-sm-3</div>
+
+        <!-- Add the extra clearfix for only the required viewport -->
+        <div class="clearfix visible-lg-block"></div>
+
+
+        <div class="col-xs-6 col-sm-3" style="background-color: #1b809e">.col-xs-6 .col-sm-3</div>
+    </div>
+
+
+
+    <!--------------------------------->
+    <!--列偏移-->
+    <!---->
+    <br><br>
+    列偏移
+    <div class="row">
+        <div class="col-sm-5 col-md-6" style="background-color: #89bdff">.col-sm-5 .col-md-6</div>
+        <div class="col-sm-5 col-sm-offset-2 col-md-6 col-md-offset-0" style="background-color: #1b809e">.col-sm-5 .col-sm-offset-2 .col-md-6 .col-md-offset-0</div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 col-md-5 col-lg-6" style="background-color: #89bdff">.col-sm-6 .col-md-5 .col-lg-6</div>
+        <div class="col-sm-6 col-md-5 col-md-offset-2 col-lg-4 col-lg-offset-1" style="background-color: #1b809e">col-sm-6 col-md-5 col-md-offset-2 col-lg-4 col-lg-offset-1</div>
+    </div>
+
+
+
+    <!----------------------------------->
+    <!--嵌套-->
+    <!---->
+    <br><br>
+    嵌套
+    <div class="row">
+        <div class="col-sm-9">
+            Level 1: .col-sm-9
+            <div class="row">
+                <div class="col-xs-8 col-sm-6" style="background-color: #1b809e">
+                    Level 2: .col-xs-8 .col-sm-6
+                </div>
+                <div class="col-xs-4 col-sm-6" style="background-color: #89bdff">
+                    Level 2: .col-xs-4 .col-sm-6
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!------------------------------------>
+    <!--列排序：推向后、拉向前-->
+    <!---->
+    <br><br>
+    列排序：推向后、拉向前
+    <div class="row">
+        <div class="col-md-9 col-md-push-2" style="background-color: #1b809e">.col-md-9 .col-md-push-2</div>
+        <div class="col-md-3 col-md-pull-9" style="background-color: #89bdff">.col-md-3 .col-md-pull-9</div>
+    </div>
+
+
+
+    <!-------------------------------------->
+    <!--Less 和 Less变量-->
+    <!--上面先引入 less 文件和 less.js-->
+    <!---->
+    <br><br>
+    Less 和 Less变量
+    <div class="wrapper">
+        <div class="content-main" style="background-color: #1b809e">用了.content-main</div>
+        <div class="content-secondary" style="background-color: #89bdff">用了.content-secondary</div>
+    </div>
+
+
+
+
+    <!---------------------------------------->
+    <!--排版：内联文本元素 和 排版类-->
+    <!--1-->
+    <br><br><br><br><br>
+    <h1>排版</h1>
+    （排版：内联文本元素 和 排版类）
+    <div class="h1">h1. Bootstrap heading <div class="small">Secondary text 小号文本（85%）</div></div>
+    <div class="h2">h2. Bootstrap heading <div class="small">Secondary text 小号文本（85%）</div></div>
+    <div class="h3">h3. Bootstrap heading <div class="small">Secondary text 小号文本（85%）</div></div>
+    <br><br>
+
+
+
+
+    <p class="lead">Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula. （突出段落）</p>
+    <p>Cum sociis <del>（带删除线的文本）</del> dis <s>（无用文本）</s>, nascetur ridiculus mus. <i>（斜体）</i> Donec ullamcorper nulla non <mark> （高亮）</mark> metus auctor <strong>（着重）</strong> fringilla. Duis mollis, est non commodo luctus,nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <p >Maecenas <ins>插入文本</ins>sed diam <u>（带下划线文本）</u>eget risus <small>小号文本（父字体的85%）</small>varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elitmetus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elitmetus, Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit</p>
+    <br><br>
+
+
+
+    <p class="text-left">text-left （左对齐）</p>
+    <p class="text-center">text-center （居中）</p>
+    <p class="text-right">text-right （右对齐）</p>
+    <p class="text-justify">est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit （行两端对齐）</p>
+    <p class="text-nowrap">sem nec elit est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit sem nec elit est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit sem nec elit est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit sem nec elit est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit （不会根据屏幕的大小对超出屏幕的文字进行换行）</p>
+    <br><br>
+
+
+
+    <p class="text-lowercase">Lowercased text （小写）</p>
+    <p class="text-uppercase">Uppercased text （大写）</p>
+    <p class="text-capitalize">Capitalized text （单词首字母大写）</p>
+    <br><br>
+
+
+
+    <abbr title="全称：English">En （缩略语）</abbr><br>
+    <abbr title="全称：HyperText Markup Language" class="initialism">html（abbr元素中的文本大写并且缩小一些）</abbr>
+    <br><br>
+
+
+
+    <address>
+        <strong>Twitter, Inc. （联系信息）</strong><br>
+        1355 Market Street, Suite 900<br>
+        San Francisco, CA 94103<br>
+        <abbr title="Phone">P:</abbr> (123) 456-7890
+    </address>
+    <address>
+        <strong>Full Name</strong><br>
+        <a href="mailto:#">first.last@example.com</a>
+    </address>
+    <br><br>
+
+
+
+
+    <blockquote>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.（引述）</p>
+        <footer>Someone famous in <cite title="Source Title"> Source Title （来源名称） </cite>（来源）</footer>
+    </blockquote>
+    <blockquote class="blockquote-reverse">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.（引述）</p>
+        <footer>Someone famous in <cite title="Source Title"> Source Title （来源名称） </cite>（来源）</footer>
+    </blockquote>
+    <br><br>
+
+
+
+
+    <!--2-->
+    <br><br>
+    （移除默认列表样式，只对直接儿子元素）
+    <ul class="list-unstyled">
+        <li>Lorem ipsum</li>
+        <li>Consectetur_adipiscing</li>
+        <ul>
+            <li>Nulla velit</li>
+            <li>Phasellus neque</li>
+            <ol>
+                <li>Nulla volutpat</li>
+                <li>Phasellus iaculis</li>
+                <li>Purus sodales</li>
+            </ol>
+        </ul>
+        <li>Faucibus fringilla vel</li>
+        <li>Consectetur elit</li>
+    </ul>
+
+
+    <!--3-->
+    <br><br>
+    （转换为行内块（内联元素），只对直接儿子元素）
+    <ul class="list-inline">
+        <li>Lorem ipsum</li>
+        <li>Consectetur_adipiscing</li>
+        <ul class="list-inline">
+            <li>Nulla velit</li>
+            <li>Phasellus neque</li>
+            <ol class="list-inline">
+                <li>Nulla volutpat</li>
+                <li>Phasellus iaculis</li>
+                <li>Purus sodales</li>
+            </ol>
+        </ul>
+        <li>Faucibus fringilla vel</li>
+        <li>Consectetur elit</li>
+    </ul>
+    <p style="margin: 50px"></p><!--分隔符-->
+
+
+
+    <!--4-->
+    <br><br>
+    （当视窗足够宽时，水平排列描述列表。不够宽时，恢复默认的堆叠排列。）
+    <dl class="dl-horizontal">
+        <dt>Description lists</dt>
+        <dd>A description list is perfect for defining terms.</dd>
+        <dt>Euismod</dt>
+        <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+        <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+        <dt>Malesuada porta</dt>
+        <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+    </dl>
+
+
+
+
+    <!-------------------------------------------------->
+    <!--代码块-->
+    <!---->
+    <br><br><br><br><br>
+    <h1>代码块</h1>
+    <br>
+    <code>此处是代码 &lt;code&gt;</code>
+
+    <p>此处表示键盘的按键，如：请按 <kbd>ctrl</kbd> + <kbd>,</kbd></p>
+
+    <pre>此处是代码块 &lt;p&gt;Sample text here...&lt;/p&gt;</pre>
+
+    此处&lt;var&gt;表示变量，如：
+    <var>y</var> = <var>m</var><var>x</var> + <var>b</var>
+    <br>
+
+    <samp>此处是程序输出 This text is meant to be treated as sample output from a computer program.</samp>
+
+
+
+
+    <!---------------------------------------------------->
+    <!--表格-->
+    <!---->
+    <br><br><br><br><br><br>
+    <h1>表格</h1>
+    <!--1-->
+    <br>
+    .table
+    .table-striped：斑马线
+    .table-bordered：边框
+    .table-hover：对鼠标在表格上悬停做出反应，凸显经过的行。
+    .table-condensed：压缩行高。
+    .table-responsive：响应式表格。屏幕很小时，单元格内文字不会换行，而是提供左右滚动条。
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Month</th>
+                <th>Savings</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+            <tr>
+                <th>1</th>
+                <td>January</td>
+                <td>$100</td>
+            </tr>
+            <tr>
+                <th>2</th>
+                <td>February</td>
+                <td>$200</td>
+            </tr>
+            <tr>
+                <th>3</th>
+                <td>March</td>
+                <td>$300</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th></th>
+                <td><strong>Total</strong></td>
+                <td><strong>$600</strong></td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <!--2-->
+    <br><br>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Month</th>
+                <th>Savings</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+            <tr class="active">
+                <td>激活的颜色（鼠标悬停 .active）</td>
+                <td>$100</td>
+            </tr>
+            <tr class="success">
+                <td>成功的颜色（.success）</td>
+                <td>$200</td>
+            </tr>
+            <tr class="warning">
+                <td>警告的颜色（.warning）</td>
+                <td>$300</td>
+            </tr>
+            <tr class="danger">
+                <td>危险的颜色（.danger）</td>
+                <td>$300</td>
+            </tr>
+            <tr class="info">
+                <td>信息的颜色（.info）</td>
+                <td>$400</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td><strong>$600</strong></td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+
+
+
+
+    <!--------------------------------------------------->
+    <!--表单 之 表单排列-->
+    <br><br><br><br>
+    <h1>表单 之 表单排列</h1>
+    <!--
+    .form-control：默认设置宽度属性为 width: 100%;
+    .form-group：为表格设置更好的间隔。
+    .form-inline：元素在同一行，inline 内联表单。
+    .sr-only：隐藏。screen reader only，意为：（仅供）屏幕阅读器，能保证屏幕阅读器正确读取且不会影响 UI 的视觉呈现。
+    .input-group、input-group-addon、input-group-btn：<input>前后额外的元素。
+    .form-horizontal：水平排列表单。
+    -->
+    <!--1-->
+    <br>（层叠排列表单，基本。）
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputFile">File input</label>
+            <input type="file" id="exampleInputFile">
+            <p class="help-block">这里是帮助文本</p>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> Check me out
+            </label>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
+    <br><br><br>（水平排列表单）
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="exampleInputEmail1">Email address</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="exampleInputPassword1">Password</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="exampleInputFile3">File input</label>
+            <div class="col-sm-10">
+                <input type="file" id="exampleInputFile3">
+                <p class="help-block">1.这里是帮助文本</p>
+                <p class="help-block">2.这里是帮助文本</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Check me out
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </div>
+    </form>
+
+
+    <!--2-->
+    <br>内联表单（合在一行，左对齐）
+    <!---->
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="exampleInputName2">Name</label>
+            <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+        </div>
+        <div class="form-group">
+            <label class="sr-only" for="exampleInputEmail2">Email（此信息只用于被辅助设备阅读）</label>
+            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+        </div>
+        <button type="submit" class="btn btn-default">Send invitation</button>
+    </form>
+
+
+    <!--3-->
+    <br><br><br>input 前后额外的元素（前后缀元素）
+    <form class="form-inline">
+        <div class="form-group">
+            <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+            <div class="input-group">
+                <div class="input-group-addon">$（前缀）</div>
+                <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                <div class="input-group-addon">.00（后缀）</div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Transfer cash</button>
+    </form>
+    <br>
+    <form>
+        <div class="form-group">
+            <label class="sr-only" for="exampleInputAmount2">Amount (in dollars)</label>
+            <div class="input-group">
+                <div class="input-group-addon">$（前缀）</div>
+                <input type="text" class="form-control" id="exampleInputAmount2" placeholder="Amount">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">（按钮）</button>
+                </span>
+            </div>
+        </div>
+    </form>
+
+
+    <!--------------------------------------------------->
+    <!--表单 之 表单控件-->
+    <br><br><br><br>
+    <h1>表单 之 表单控件</h1>
+    <!--
+    注意：只有正确设置了 type 属性的输入控件才能被赋予正确的样式。
+    -->
+    <!--
+    .disabled：“不可操作”样式，鼠标悬停时有个禁止标志。注意区分.disabled 和 <input>里的disabled。
+    .checkbox：复选框样式
+    .checkbox-inline：内联复选框样式
+    .radio：单选框样式
+    .radio-inline：内联单选框样式
+    .form-control-static：将一行纯文本和 label 元素放置于同一行。静态。
+    -->
+    <!--1-->
+    <br><br>
+    <form>
+        单行文本框
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Text input">
+            <input type="text" class="form-control" placeholder="Text input（禁用）" disabled>
+        </div>
+        多行文本输入框
+        <div class="form-group">
+            <textarea class="form-control" rows="3"></textarea>
+        </div>
+    </form>
+
+
+
+    <!--2-->
+    <br><br>
+    复选框（竖排）
+    <!---->
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" value="">
+            Option one is this and that&mdash;be sure to include why it's great
+        </label>
+    </div>
+    <div class="checkbox disabled">
+        <label>
+            <input type="checkbox" value="" disabled>
+            Option two is disabled（此项不可选）
+        </label>
+    </div>
+
+    <!---->
+    复选框（横排/内联）
+    <!---->
+    <div class="form-group">
+        <label class="checkbox-inline">
+            <input type="checkbox" value="">
+            Option one
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" value="">
+            Option two
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" value="" disabled>
+            Option three（此项不可选）
+        </label>
+    </div>
+
+
+
+    <!--3-->
+
+    <br><br>
+    注意：下面两组单选框要分别用不同的 name 属性 或者 用两个 form 元素分别包裹，否则会认为是同一组单选框。<br>
+    单选框（竖排）
+    <!---->
+        <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios1" id="optionsRadios1" value="option1" checked>
+                    Option one is this and that&mdash;be sure to include why it's great
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios1" id="optionsRadios2" value="option2">
+                    Option two can be something else and selecting it will deselect option one
+                </label>
+            </div>
+            <div class="radio disabled">
+                <label>
+                    <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" disabled>
+                    Option three is disabled（此项不可选）
+                </label>
+            </div>
+        </div>
+
+    <!---->
+    单选框（横排/内联）
+    <!---->
+        <div class="form-group">
+            <label class="radio-inline">
+                <input type="radio" name="optionsRadios2" id="optionsRadiosInline1" value="option1" checked>
+                Option one
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="optionsRadios2" id="optionsRadiosInline2" value="option2" checked>
+                Option one
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="optionsRadios2" id="optionsRadiosInline3" value="option3" checked disabled>
+                Option one
+            </label>
+        </div>
+
+
+
+    <!--4-->
+    <br><br>
+    不带label文本的复选框/单选框
+    <!---->
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
+        </label>
+    </div>
+
+
+    <!--5-->
+    <br><br>
+    下拉列表1
+    <!---->
+    <div class="form-group ">
+        <select class="form-control">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+    </div>
+
+    <!---->
+    下拉列表2
+    <!---->
+    <div class="form-group">
+        <select multiple class="form-control">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+    </div>
+
+
+    <!--6-->
+    <br><br>
+    文本（email@example.com） 与 label（Email）置于同一行。
+    <!---->
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-2">Email</label>
+            <div class="col-sm-10">
+                <p class="form-control-static">email@example.com</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword" class="control-label col-sm-2">Password</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+            </div>
+        </div>
+    </form>
+
+
+    <!--7-->
+    <br><br>
+    （可以整个 fieldset 禁用）
+    <!---->
+    <div>
+        <form class="form-horizontal">
+            <fieldset disabled>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="exampleInputEmail4">Email address</label>
+                    <div class=" col-sm-8">
+                        <input type="email" class="form-control" id="exampleInputEmail4" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2 sr-only" for="exampleInputText1">Text</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="exampleInputText1" placeholder="Text input">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2 " for="exampleInputSelect1">Select</label>
+                    <div class="col-sm-8">
+                        <select class="form-control" id="exampleInputSelect1">
+                            <option>1</option>
+                            <option>2</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+
+
+    <!--8-->
+    <br><br>
+    （只读，跟禁用相似，只是保留了鼠标状态）
+    <!---->
+    <input class="form-control" type="text" placeholder="Readonly input here…（只读）" readonly>
+
+
+
+    <!--9-->
+    <br><br>
+    （帮助文本）
+    <!---->
+    <div>
+    <label for="inputHelpBlock">Input with help text</label>
+    <input type="text" id="inputHelpBlock" class="form-control" aria-describedby="helpBlock">
+    ...
+    <span id="helpBlock" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.（帮助文本）</span>
+    </div>
+
+
+
+    <!--10-->
+    <br><br>
+    （校验状态 之一）任何包含在内的 .control-label、.form-control 和 .help-block 元素都将接受这些校验状态的样式。
+    <!---->
+    <div class="form-group has-success">
+        <label class="control-label" for="inputSuccess1">Input with success</label>
+        <input type="text" class="form-control" id="inputSuccess1" aria-describedby="helpBlock2">
+        <span id="helpBlock2" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+    </div>
+    <div class="form-group has-warning">
+        <label class="control-label" for="inputWarning1">Input with warning</label>
+        <input type="text" class="form-control" id="inputWarning1">
+    </div>
+    <div class="form-group has-error">
+        <label class="control-label" for="inputError1">Input with error</label>
+        <input type="text" class="form-control" id="inputError1">
+    </div>
+    <div class="has-success">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="checkboxSuccess" value="option1">
+                Checkbox with success
+            </label>
+        </div>
+    </div>
+    <div class="has-warning">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="checkboxWarning" value="option1">
+                Checkbox with warning
+            </label>
+        </div>
+    </div>
+    <div class="has-error">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="checkboxError" value="option1">
+                Checkbox with error
+            </label>
+        </div>
+    </div>
+
+
+
+    <!---->
+    <br><br>
+    （状态校验 之二 添加额外的图标 .glyphicon）
+    <!---->
+    <div class="form-group has-success has-feedback">
+        <label class="control-label" for="inputSuccess2">Input with success</label>
+        <input type="text" class="form-control" id="inputSuccess2" aria-describedby="inputSuccess2Status" placeholder="后面用了.glyphicon-ok添加图标">
+        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span><!--此span对于辅助设备来说是隐藏的，辅助设备不会阅读它-->
+        <span id="inputSuccess2Status" class="sr-only">(success)</span><!--(success)会被隐藏，此span用于辅助设备阅读-->
+    </div>
+    <div class="form-group has-warning has-feedback">
+        <label class="control-label" for="inputWarning2">Input with warning</label>
+        <input type="text" class="form-control" id="inputWarning2" aria-describedby="inputWarning2Status" placeholder="后面用了.glyphicon-warning-sign添加图标">
+        <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
+        <span id="inputWarning2Status" class="sr-only">(warning)</span><!--(warning)会被隐藏，此span用于辅助设备阅读-->
+    </div>
+    <div class="form-group has-error has-feedback">
+        <label class="control-label" for="inputError2">Input with error</label>
+        <input type="text" class="form-control" id="inputError2" aria-describedby="inputError2Status" placeholder="后面用了.glyphicon-remove添加图标">
+        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+        <span id="inputError2Status" class="sr-only">(error)</span><!--(error)会被隐藏，此span用于辅助设备阅读-->
+    </div>
+    <div class="form-group has-success has-feedback">
+        <label class="control-label" for="inputGroupSuccess1">Input group with success</label>
+        <div class="input-group">
+            <span class="input-group-addon">@</span>
+            <input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status" placeholder="后面用了.glyphicon-ok添加图标">
+        </div>
+        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+        <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
+    </div>
+
+
+    <!---->
+    <br><br>
+    （状态校验 之三 添加额外的图标（为水平排列的表单和内联表单））<br>
+    （水平排列的表单）
+    <!---->
+    <form class="form-horizontal">
+        <div class="form-group has-success has-feedback">
+            <label class="control-label col-sm-3" for="inputSuccess3">Input with success</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
+                <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                <span id="inputSuccess3Status" class="sr-only">(success)</span>
+            </div>
+        </div>
+        <div class="form-group has-success has-feedback">
+            <label class="control-label col-sm-3" for="inputGroupSuccess2">Input group with success</label>
+            <div class="col-sm-9">
+                <div class="input-group">
+                    <span class="input-group-addon">@</span>
+                    <input type="text" class="form-control" id="inputGroupSuccess2" aria-describedby="inputGroupSuccess2Status">
+                </div>
+                <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                <span id="inputGroupSuccess2Status" class="sr-only">(success)</span>
+            </div>
+        </div>
+    </form>
+
+    <!---->
+    （内联表单）
+    <!---->
+    <form class="form-inline form-group">
+        <div class="form-group has-success has-feedback">
+            <label class="control-label" for="inputSuccess4">Input with success</label>
+            <input type="text" class="form-control" id="inputSuccess4" aria-describedby="inputSuccess4Status">
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+            <span id="inputSuccess4Status" class="sr-only">(success)</span>
+        </div>
+    </form>
+    <form class="form-inline form-group">
+        <div class="form-group has-success has-feedback">
+            <label class="control-label" for="inputGroupSuccess3">Input group with success</label>
+            <div class="input-group">
+                <span class="input-group-addon">@</span>
+                <input type="text" class="form-control" id="inputGroupSuccess3" aria-describedby="inputGroupSuccess3Status">
+            </div>
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+            <span id="inputGroupSuccess3Status" class="sr-only">(success)</span>
+        </div>
+    </form>
+    <form class="form-inline form-group">
+        <div class="has-success has-feedback">
+            <label class="control-label" for="inputGroupSuccess5">Input group with success</label>
+            <div class="input-group">
+                <span class="input-group-addon">@</span>
+                <input type="text" class="form-control" id="inputGroupSuccess5" aria-describedby="inputGroupSuccess3Status">
+            </div>
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+            <span id="inputGroupSuccess5Status" class="sr-only">(success)</span>
+        </div>
+    </form>
+
+
+
+
+
+    <!--------------------------------------------------->
+    <!--控制表单控件的尺寸-->
+    <!--1-->
+    <br><br>
+    表单控件的尺寸（高度）
+    <!---->
+    <input class="form-control input-lg" type="text" placeholder="用.input-lg 设置控件高度">
+    <input class="form-control" type="text" placeholder="Default">
+    <input class="form-control input-sm" type="text" placeholder="用.input-sm 设置控件高度">
+    <br>
+    <select class="form-control input-lg">...</select>
+    <select class="form-control">...</select>
+    <select class="form-control input-sm">...</select>
+
+
+    <!--2-->
+    <br><br>
+    水平排列的表单组的尺寸（高度）
+    <!---->
+    <form class="form-horizontal">
+        <div class="form-group form-group-lg">
+            <label class="col-sm-2 control-label" for="formGroupInputLarge">Large label</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" id="formGroupInputLarge" placeholder="用.form-group-lg 设置水平排列的控件的高度">
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label class="col-sm-2 control-label" for="formGroupInputSmall">Small label</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" id="formGroupInputSmall" placeholder="用.form-group-sm 设置水平排列的控件的高度">
+            </div>
+        </div>
+    </form>
+
+
+    <!--3-->
+    <br><br>
+    表单控件的尺寸（宽度）
+    <!---->
+    <div class="row">
+        <div class="col-xs-2">
+            <input type="text" class="form-control" placeholder=".col-xs-2">
+        </div>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" placeholder=".col-xs-3">
+        </div>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" placeholder=".col-xs-4">
+        </div>
+    </div>
+
+
+
+
+
+    <!---------------------------------------------------------->
+    <!--按钮-->
+    <!--1-->
+    <br><br><br><br>
+    <h1>按钮</h1>
+    （为 a、button 或 input 元素添加按钮类.btn 即可使用样式 .btn-default。）
+    <!---->
+    <br><br>
+    · 针对组件的注意事项：
+    虽然按钮类可以应用到 a 和 button 元素上，但是，导航和导航条组件只支持 button 元素。<br>
+    · 链接被作为按钮使用时的注意事项：
+    如果 a 元素被作为按钮使用 -- 并用于在当前页面触发某些功能 -- 而不是用于链接其他页面或链接当前页面中的其他部分，那么，务必为其设置 role="button" 属性。<br>
+    · 跨浏览器展现：
+    强烈建议尽可能使用 button 元素来获得在各个浏览器上获得相匹配的绘制效果。
+    <br>
+    <a class="btn btn-default" href="#" role="button">Link</a>
+    <button class="btn btn-default" type="submit">Button（建议）</button>
+    <input class="btn btn-default" type="button" value="Input">
+    <input class="btn btn-default" type="submit" value="Submit">
+
+
+
+    <!--2-->
+    <br><br><br><br><br>
+    预定义按钮样式
+    <!---->
+    <br><br>（未按下）
+    <button type="button" class="btn btn-default">（默认样式）Default</button>
+
+    <button type="button" class="btn btn-primary">（首选项）Primary</button>
+
+    <button type="button" class="btn btn-success">（成功）Success</button>
+
+    <button type="button" class="btn btn-info">（一般信息）Info</button>
+
+    <button type="button" class="btn btn-warning">（警告）Warning</button>
+
+    <button type="button" class="btn btn-danger">（危险）Danger</button>
+
+    <button type="button" class="btn btn-link">（链接）Link</button>
+
+    <br><br>激活状态（按下）(.active)
+    <button type="button" class="btn btn-default active">（默认样式）Default</button>
+
+    <button type="button" class="btn btn-primary active">（首选项）Primary</button>
+
+    <button type="button" class="btn btn-success active">（成功）Success</button>
+
+    <button type="button" class="btn btn-info active">（一般信息）Info</button>
+
+    <button type="button" class="btn btn-warning active">（警告）Warning</button>
+
+    <button type="button" class="btn btn-danger active">（危险）Danger</button>
+
+    <button type="button" class="btn btn-link active">（链接）Link</button>
+
+
+
+    <!--3-->
+    <br><br><br><br><br>
+    按钮尺寸<br><br>
+    <!---->
+    <p>
+        <button type="button" class="btn btn-primary btn-lg">（大按钮）btn-lg</button>
+        <button type="button" class="btn btn-default btn-lg">（大按钮）btn-lg</button>
+    </p>
+    <p>
+        <button type="button" class="btn btn-primary">（默认尺寸）Default</button>
+        <button type="button" class="btn btn-default">（默认尺寸）Default</button>
+    </p>
+    <p>
+        <button type="button" class="btn btn-primary btn-sm">（小按钮）btn-sm</button>
+        <button type="button" class="btn btn-default btn-sm">（小按钮）btn-sm</button>
+    </p>
+    <p>
+        <button type="button" class="btn btn-primary btn-xs">（超小尺寸）btn-xs</button>
+        <button type="button" class="btn btn-default btn-xs">（超小尺寸）btn-xs</button>
+    </p>
+
+
+    <br><br><br><br>
+    .btn-block 类可以将其拉伸至父元素 100% 的宽度，而且按钮也变为了块级（block）元素
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg btn-block">（块级元素按钮）.btn-block</button>
+    <button type="button" class="btn btn-default btn-lg btn-block">（块级元素按钮）.btn-block</button>
+
+
+
+
+
+
+
+    <!---------------------------------------------------------------------->
+    <!--图片-->
+    <!--1-->
+    <br><br><br><br><br><br><br>
+    <h1>图片</h1>
+    <br><br>
+    <!---->
+    响应式图片（.img-responsive）,图片居中（.center-block）<br>
+    <!---->
+    <div class="col-sm-4" style="border: dashed 1px #d5d5d5">
+        <img src="img/demo1.jpg" class="img-responsive center-block" alt="Responsive image">
+    </div>
+    <div class="clearfix">...</div>
+
+
+    <!--2-->
+    <div class="col-sm-12" >
+        <br><br>
+        图片形状（.img-rounded  .img-circle  .img-thumbnail）<br>
+        <img src="img/demo1.jpg" alt="..." class="img-rounded">
+        <img src="img/demo1.jpg" alt="..." class="img-circle">
+        <img src="img/demo1.jpg" alt="..." class="img-thumbnail">
+    </div>
+    <div class="clearfix">...</div>
+
+
+
+
+    <!------------------------------------------------------------------------>
+    <!--关于辅助设备-->
+    <!---->
+    <br><br><br><br>
+    （说说辅助设备）<br><br>
+    辅助设备技术主要用来帮助障碍人士阅读页面。现代的辅助技术能够识别并朗读由 CSS 生成的内容和特定的 Unicode 字符。<br>
+    1、为了避免屏幕识读设备误读（尤其是当图标纯粹作为装饰用途时），可以用 aria-hidden="true" 属性阻止辅助设备阅读。<br>
+    2、如果只想给辅助设备阅读而不想在屏幕上显示，可以用 .sr-only 类隐藏。<br>
+    3、如果你所创建的组件不包含任何文本内容，为了让使用辅助设备的用户知道其作用，可以添加 aria-label 属性。<br>
+    （可在本页代码中搜索一下示例）
+
+
+
+    <!------------------------------------------------------------------------>
+    <!--辅助类-->
+    <!---->
+    <br><br><br><br><br><br>
+    <h1>辅助类</h1><br><br>
+    <!--1-->
+    （情境文本颜色）<br>
+    <!---->
+    <a href="#" class="text-muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.（应用于链接）</a>
+    <p class="text-muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.（应用于段落）</p>
+    <a href="#" class="text-primary">Nullam id dolor id nibh ultricies vehicula ut id elit</a>
+    <p class="text-primary">Nullam id dolor id nibh ultricies vehicula ut id elit</p>
+    <a href="#" class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</a>
+    <p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+    <a href="#" class="text-info">Maecenas sed diam eget risus varius blandit sit amet non magna.</a>
+    <p class="text-info">Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+    <a href="#" class="text-warning">Etiam porta sem malesuada magna mollis euismod.</a>
+    <p class="text-warning">Etiam porta sem malesuada magna mollis euismod.</p>
+    <a href="#" class="text-danger">Donec ullamcorper nulla non metus auctor fringilla.</a>
+    <p class="text-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
+
+    <br>
+    （情境背景颜色）<br>
+    <!---->
+    <a href="#" class="bg-primary">Nullam id dolor id nibh ultricies vehicula ut id elit.（应用于链接）</a>
+    <p class="bg-primary">Nullam id dolor id nibh ultricies vehicula ut id elit.（应用于段落）</p>
+    <a href="#" class="bg-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</a>
+    <p class="bg-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+    <a href="#" class="bg-info">Maecenas sed diam eget risus varius blandit sit amet non magna.</a>
+    <p class="bg-info">Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+    <a href="#" class="bg-warning">Etiam porta sem malesuada magna mollis euismod.</a>
+    <p class="bg-warning">Etiam porta sem malesuada magna mollis euismod.</p>
+    <a href="#" class="bg-danger">Donec ullamcorper nulla non metus auctor fringilla.</a>
+    <p class="bg-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
+
+
+
+    <!--2-->
+    <br><br><br>
+    （关闭按钮 .close）
+    <!---->
+    <div class="clearfix"></div>
+    <div class="col-sm-2">
+        <button type="button" class="close pull-left" aria-label="关闭"><span aria-hidden="true">&times;</span></button><!--辅助设备通过阅读 aria-label 告知障碍人士其功能用途。-->
+    </div>
+
+
+    <!--3-->
+    <br><br><br>
+    （三角按钮 .caret）
+    <span class="caret"></span>
+
+
+
+    <!--4-->
+    <br><br><br>
+    （快速浮动）<br>
+    <!---->
+    <p>（注意当导航条中的组件时需要换成：.navbar-left 或 .navbar-right）</p>
+    <div class="pull-left" style="border: dashed 1px #d5d5d5;">快速向左浮动（.pull-left）</div>
+    <div class="pull-right" style="border: dashed 1px #d5d5d5;">快速向右浮动（.pull-right）</div>
+    <div class="clearfix"></div>
+
+
+    <!--5-->
+    <br><br><br>
+    （块居中，要先为div设置宽度）<br>
+    <div class="center-block" style="width: 500px"> Donec ullamcorper nulla non metus auctor fringilla. </div>
+
+
+
+    <!--6-->
+    <br><br><br>
+    （清除浮动 .clearfix）<br>
+    <!---->
+    <div class="clearfix">此div清除了浮动</div>
+
+
+
+    <!--7-->
+    <br><br><br>
+    显示或隐藏内容<br>
+    <!---->
+    （注意：<br>
+    1 .show 和 .hidden 类可以强制任意元素显示或隐藏(对于屏幕阅读器也能起效)。这些类只对块级元素起作用。<br>
+    2 .hide 类仍然可用，但是它不能对屏幕阅读器起作用，并且从 v3.0.1 版本开始就不建议使用了。请使用 .hidden 或 .sr-only 。<br>
+    3 另外，.invisible 类可以被用来仅仅影响元素的可见性，也就是说，元素的 display 属性不被改变，并且这个元素仍然能够影响文档流的排布。）<br><br>
+
+    （下面div被显示 .show）： <div class="show"> “我是内容”</div>
+    （下面div被隐藏 .hidden）： <div class="hidden"> “我是内容”</div>
+
+
+
+    <!--8-->
+    <br><br><br>
+    屏幕阅读器 sr-only <br>
+    （.sr-only 和 .sr-only-focusable 联合使用的话可以在元素有焦点的时候再次阅读出来）<br>
+    （请看代码，下面有一个隐藏的链接 a ，只读于屏幕阅读器。）<br>
+    <a class="sr-only sr-only-focusable" href="#content">只读于屏幕阅读器，不可见</a>
+
+
+
+    <!--9-->
+    <br><br><br>
+    图片替换 -- 临时占位，以后放图片<br>
+    （请看代码，下面有一个隐藏的 h1 用 .text-hide 隐藏文本，为什么用这种方法替换图片？以下摘录一段网上的解析。而未知如何使用。）<br>
+    <div style="color: #d5d5d5">
+        （摘录：<br>
+        这个问题就涉及了我们通常说的技术套路（模式）<br>
+        首先说一下为什么不用直接图片（用背景图的好处）？<br>
+        1、用背景图可以直接使用CSS控制，保证html文档干净，使html只容纳内容结构，而用CSS控制样式。<br>
+        2、用CSS控制所有，这样更换模板很方便，html不用调整（内容和结构是稳定的嘛）<br>
+        3、背景图可以合并，通过定位选取，这样优化请求<br>
+        不过以上最重要的是保持html（内容和结构）稳定，————容颜易改我心如一。<br>
+        <br>
+        那么，为什么设置了文本，而又隐藏掉呢？ 因为 a 是内联元素， 内联元素有个特点就是：如果元素里没内容，我是没有高度的哦。
+        如果没有高度，设置了背景又怎样呢，你啥也看不到。虽然有让它有高度的方法（block之类的），但这些方法改变了元素类型有时带来副作用，所以嘛最简便的还是加上文本再隐藏掉（比如text-indent:
+        110%;之类的），这样皆大欢喜。
+        对了，另外在开发的分工合作中，HTML和CSS编程者可以方便的适用合适字体大小占据需要的位置，能够保持文档结构合适，留下的那个空就可以交给美工去设计图片。）
+    </div>
+    <h1 class="text-hide col-sm-4">此处占位，以后放图片的。</h1>
+
+
+
+
+    <!-------------------------------------------------------------->
+    <!--响应式工具-->
+    <br><br><br>
+    <h1>响应式工具</h1>
+
+    （调整视窗 768px\992px\1200px）
+    <br><br>
+    <!---->
+    响应隐藏<br>
+    <button class="btn btn-default hidden-xs">.hidden-xs（超小屏时隐藏）</button>
+    <button class="btn btn-default hidden-sm">.hidden-sm（小屏时隐藏）</button>
+    <button class="btn btn-default hidden-md">.hidden-md（中屏时隐藏）</button>
+    <button class="btn btn-default hidden-lg">.hidden-lg（大屏时隐藏）</button>
+    <div class="clearfix"></div>
+
+    <br>
+    响应显示<br>
+    <button class="btn btn-default visible-xs-block">.visible-xs-block（超小屏时显示）</button>
+    <button class="btn btn-default visible-xs-inline">.visible-xs-inline（超小屏时显示）</button>
+    <button class="btn btn-default visible-xs-inline-block">.visible-xs-inline-block（超小屏时显示）</button>
+    <button class="btn btn-default visible-sm-block">.visible-sm-block（小屏时显示）</button>
+    <button class="btn btn-default visible-sm-inline">.visible-sm-inline（小屏时显示）</button>
+    <button class="btn btn-default visible-sm-inline-block">.visible-sm-inline-block（小屏时显示）</button>
+    <button class="btn btn-default visible-md-block">.visible-md-block（中屏时显示）</button>
+    <button class="btn btn-default visible-md-inline">.visible-md-inline（中屏时显示）</button>
+    <button class="btn btn-default visible-md-inline-block">.visible-md-inline-block（中屏时显示）</button>
+    <button class="btn btn-default visible-lg-block">.visible-lg-block（大屏时显示）</button>
+    <button class="btn btn-default visible-lg-inline">.visible-lg-inline（大屏时显示）</button>
+    <button class="btn btn-default visible-lg-inline-block">.visible-lg-inline-block（大屏时显示）</button>
+    <div class="clearfix"></div>
+
+    <br>
+    响应打印（打印时显示 和 打印时隐藏）<br>
+    <button class="btn btn-default visible-print-block">.visible-print-block（打印时显示）</button>
+    <button class="btn btn-default visible-print-inline">.visible-print-inline（打印时显示）</button>
+    <button class="btn btn-default visible-print-inline-block">.visible-print-inline-block（打印时显示）</button>
+    <button class="btn btn-default hidden-print">.hidden-print（打印时隐藏）</button>
+
+
+
+    <!----------------------------------------------------------------------->
+    <!--使用 Less-->
+    <br><br><br><br><br><br>
+    <h1>使用 Less</h1>
+    <br><br>
+    <!---->
+    less变量：
+    <br>
+    <p class="jamesReasignedClass1">渲染样式在 style.less里，并且使用了less变量 @brand-primary</p>
+    <p class="jamesReasignedClass2">渲染样式在 style.less里，并且使用了less变量 @brand-success</p>
+    <p class="jamesReasignedClass3">渲染样式在 style.less里，并且使用了less变量 @brand-info</p>
+    <p class="jamesReasignedClass4">渲染样式在 style.less里，并且使用了less变量 @brand-warning</p>
+    <p class="jamesReasignedClass5">渲染样式在 style.less里，并且使用了less变量 @brand-danger</p>
+    <p class="jamesReasignedClass6">渲染样式在 style.less里，并且使用了less变量 @gray-darker</p>
+    <p class="jamesReasignedClass7">渲染样式在 style.less里，并且使用了less变量 @gray-dark</p>
+    <p class="jamesReasignedClass8">渲染样式在 style.less里，并且使用了less变量 @gray</p>
+    <p class="jamesReasignedClass9">渲染样式在 style.less里，并且使用了less变量 @gray-light</p>
+    <p class="jamesReasignedClass10">渲染样式在 style.less里，并且使用了less变量 @gray-lighter</p>
+    <p class="jamesReasignedClass11">渲染样式在 style.less里，并且使用了less变量 自定义变量@alert-jamesColor</p>
+
+    <br><br>
+    利用less变量方便地控制样式：
+    <br>
+    <a id="specialA" href="#">利用less变量方便地控制这个链接 a 的样式。（注意：less 中使用了 Less 提供的一个内置函数 darken()，
+        用于调整设置颜色。你还可以使用 darken、lighten、saturate 和 desaturate 等 Less 内置的函数。）</a>
+
+
+
+    <!--------------------------------------------------------------------------->
+    <br><br><br><br><br>
+    <h1>针对特定厂商的 mixin</h1>
+    <!--1-->
+    <br><br>
+    （同一侧圆角：利用 .border-bottom-radius(@radius) 这个 mixin 同时快速设置了同一侧（两个）圆角。）
+    <div class="jamesClass1" style="width: 100px; height: 100px; background-color: #9acfea;"></div>
+
+
+    <!--2-->
+    <br><br><br>
+    （过渡效果的 mixin：利用 .transition-property(@transition-property) 、 .transition-duration(@transition-duration) 这两个 mixin 设置过渡。）
+    <div class="jamesClass2"></div>
+
+
+    <!--3-->
+    <br><br><br>
+    （变形 的 mixin：利用 .rotate(@degrees) 这个 mixin 设置变形）
+    <div class="jamesClass3" style="width: 100px; height: 100px; background-color: #9acfea;"></div>
+
+
+    <!--4-->
+    <br><br><br>
+    （动画 的 mixin：利用 .animation(@animation) 这个 mixin 设置动画）
+    <div class="jamesClass4" style="width: 100px; height: 100px; background-color: #9acfea;"></div>
+
+
+    <!--5-->
+    <br><br><br>
+    (透明 的 mixin：利用 .opacity(@opacity) 这个 mixin 设置透明度)
+    <div style="width: 100px; height: 100px; background-color: #9acfea;"></div>
+    <div class="jamesClass5" style="width: 80px; height: 80px; background-color: #563d7c; position: relative; top: -50px;"></div>
+
+
+
+    <!--6-->
+    <br>
+    （占位符文本 的 mixin：）
+    <form>
+        <input id="jamesId6" class="form-control" type="text" placeholder="利用 .placeholder(@color: @input-color-placeholder) 这个 mixin 自定义了占位符的颜色">
+    </form>
+
+
+
+    <!--7-->
+    <br><br><br><br>
+    （分列 的 mixin：利用 .content-columns(@column-count; @column-gap: @grid-gutter-width) 这个 mixin 生成分列）
+    <br><br>
+    <div class="newspaper">
+        人民网北京2月24日电 (记者 刘阳)国家发展改革委近日发出通知，决定自2月25日零时起将汽、柴油价格每吨分别提高300元和290元，折算到90号汽油和0号柴油（全国平均）每升零售价格分别提高0.22元和0.25元。
+
+        此次国内成品油价格调整幅度，是按照现行国内成品油价格形成机制，根据国际市场油价变化情况确定的。去年11月16日国内成品油价格调整以来，受市场预期欧美经济复苏前景向好以及中东局势持续动荡等因素影响，国际市场原油价格先抑后扬，2月上旬WTI和布伦特原油期货价格再次回升至每桶95美元和115美元以上。虽然近两日价格有所回落，但国内油价挂钩的国际市场三种原油连续22个工作日移动平均价格上涨幅度已超过4%，达到国内成品油价格调整的边界条件。
+
+        通知指出，这次成品油调价后，国家将按照已建立的补贴机制，继续对种粮农民、渔业（含远洋渔业）、林业、城市公交、农村道路客运（含岛际和农村水路客运）等给予补贴。同时，为保证市场物价基本稳定，防止连锁涨价，对与居民生活密切相关的铁路客运、城市公交、农村道路客运（含岛际和农村水路客运）价格不作调整。
+
+        通知要求，中石油、中石化、中海油三大公司要组织好成品油生产和调运，保持合理库存，加强综合协调和应急调度，保障成品油供应。各级价格主管部门要加大市场监督检查力度，依法查处不执行国家价格政策，以及囤积居奇、造谣惑众、合谋涨价、搭车涨价等违法行为，维护正常市场秩序。
+    </div>
+
+
+
+
+
+
+    <!--8-->
+    <br><br><br><br>
+    （渐变 的 mixin：）<br>
+     下面分别是：<br>
+     利用 #gradient > .vertical(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%) 这个 mixin 设置渐变<br>
+     利用 #gradient > .horizontal(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%) 这个 mixin 设置渐变<br>
+     利用 #gradient > .radial(@inner-color: #555; @outer-color: #333) 这个 mixin 设置渐变<br>
+     利用 #gradient > .directional(@start-color: #555; @end-color: #333; @deg: 45deg) 这个 mixin 设置渐变<br>
+     利用 #gradient > .striped(@color: rgba(255,255,255,.15); @angle: 45deg) 这个 mixin 设置渐变<br>
+     利用 #gradient > .vertical-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f) 这个 mixin 设置渐变<br>
+     利用 #gradient > .horizontal-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f) 这个 mixin 设置渐变<br>
+    <div style="float: left;">
+        <div class="jamesClass6" style="width: 100px; height: 100px; float: left;"></div>
+        <div class="jamesClass7" style="width: 100px; height: 100px; float: left;"></div>
+        <div class="jamesClass8" style="width: 100px; height: 100px; float: left;"></div>
+        <div class="jamesClass9" style="width: 100px; height: 100px; float: left;"></div>
+        <div class="jamesClass10" style="width: 100px; height: 100px; float: left;"></div>
+        <div class="jamesClass11" style="width: 100px; height: 100px; float: left;"></div>
+        <div class="jamesClass12" style="width: 100px; height: 100px; float: left;"></div>
+    </div>
+
+
+
+
+    <!--------------------------------------------------------------------------------->
+
+
+    <div class="jamesClearfix"></div>
+    <br><br><br><br>
+    实用工具的 mixin
+    <!--1-->
+    <br><br>
+    （清除浮动 的 mixin：建议为需要清除浮动的元素使用 .clearfix() mixin ，尽量不要直接添加 class="clearfix" 类。）<br>
+    （从上面可找一些例子看看）
+
+
+    <!--2-->
+    <br><br><br>
+    （水平居中 的 mixin：让元素在其父元素中水平居中。需要设置 width 或 max-width 属性。）<br>
+    （从上面可找一些例子看看）
+
+
+    <!--3-->
+    <br><br><br>
+    （尺寸助手 的 mixin：）
+    <div>
+        <div class="jamesSize text-center" style="background-color: #9acfea; float:left;">利用了 .size(@width; @height) 这个 mixin</div>
+        <div class="jamesSquareSize text-center" style="background-color: #9acfea; float:left; margin-left: 10px;">利用了 .square(@size) 这个 mixin</div>
+    </div>
+    <div class="jamesClearfix"></div>
+
+
+    <!--4-->
+    <br><br><br>
+    （可调整文本域大小 的 mixin：拖动右下角）<br>
+    <form>
+        <textarea class="form-control jamesClass13" rows="3" placeholder="利用了 .resizable(@direction: both) 这个 mixin"></textarea>
+    </form>
+
+
+    <!--5-->
+    <br><br><br>
+    （截断文本 的 mixin：）<br>
+    <p class="jamesClass14">利用 .text-overflow() 这个 mixin 用来以省略号代替被截断的文本。元素必须是 block 或 inline-block 级。请看后面的省略号。请看后面的省略号。请看后面的省略号。请看后面的省略号。</p>
+
+
+    <!--6-->
+    <br><br><br>
+    （识别视网膜屏幕（Retina）下载图片 的 mixin：利用 .img-retina(@file-1x; @file-2x; @width-1x; @height-1x) 这个 mixin）<br>
+    （若是 Retina 屏则下载另一副图片@file-2x）
+    <div class="jamesclass15" style="width:350px; height: 300px;"></div>
+
+
+
+
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+<!--aboutBootstrapHelloworld.html-->
