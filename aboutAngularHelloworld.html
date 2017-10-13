@@ -13,338 +13,338 @@
 <!--注意：一次只能有一个<div ng-app="">-->
 
 
-<!--&lt;!&ndash;1、第一个Angular表达式&ndash;&gt;-->
-<!--<div ng-app="">-->
-    <!--<p>我的第一个表达式： {{ 5 + 5 }}</p>-->
-<!--</div>-->
-
-
-<!--&lt;!&ndash;2、第一个Angular指令&ndash;&gt;-->
-<!--<div ng-app="" ng-init="a='Jame'">  &lt;!&ndash;ng-init初始化AngularJS应用程序变量&ndash;&gt;-->
-    <!--<p><span ng-bind="a"></span></p>-->
-<!--</div>-->
-
-
-<!--&lt;!&ndash;3、第一个Angular指令（带有效的HTML5）&ndash;&gt;-->
-<!--<div data-ng-app="" data-ng-init="a='Jame'">    &lt;!&ndash;HTML5里使用自定义特性时以data-作前缀&ndash;&gt;-->
-    <!--<p><span data-ng-bind="a"></span></p>-->
-<!--</div>-->
-
-
-<!--&lt;!&ndash;4、ng-model，绑定，下面可“实时”使用&ndash;&gt;-->
-<!--&lt;!&ndash;ng-model 特性把它的值和 input 控件进行了双向绑定&ndash;&gt;-->
-<!--<div ng-app="">-->
-    <!--<p><input type="text" ng-model="a"></p>-->
-    <!--<p><input type="text" ng-model="b"></p>-->
-    <!--<p>{{a+b}}</p> &lt;!&ndash;相拼接&ndash;&gt;-->
-    <!--<p><input type="number" ng-model="c"></p>-->
-    <!--<p><input type="number" ng-model="d"></p>-->
-    <!--<p>{{c+d}}</p> &lt;!&ndash;相加&ndash;&gt;-->
-    <!--<p><span ng-bind="c+d"></span></p> &lt;!&ndash;相加&ndash;&gt;-->
-<!--</div>-->
-
-
-
-<!--&lt;!&ndash;5、表达式：{{}}&ndash;&gt;-->
-
-<!--&lt;!&ndash;5.1、直接表达式&ndash;&gt;-->
-<!--<div ng-app="">-->
-    <!--<p>{{ 5 + 5 }}</p>-->
-<!--</div>-->
-
-
-<!--&lt;!&ndash;5.1、使用变量&ndash;&gt;-->
-<!--<div ng-app="" ng-init="a='2'; b='5'; c=2; d=5; e={name:'jame', age:20}; f=[3,5,6,1,12,54]">-->
-    <!--<p>{{ a + b }}</p>-->
-    <!--<p><span ng-bind=" a + b "></span></p> &lt;!&ndash;ng-bind 指令里可放表达式&ndash;&gt;-->
-    <!--<p>{{ c + d }}</p>-->
-    <!--<p><span ng-bind=" c + d "></span></p>-->
-    <!--<p>{{ e.age }}</p>-->
-    <!--<p><span ng-bind=" e.age "></span></p>-->
-    <!--<p>{{ f[2] }}</p>-->
-    <!--<p><span ng-bind=" f[2] "></span></p>-->
-<!--</div>-->
-
-
-
-<!--&lt;!&ndash;6、控制器1。ng-model指令。&ndash;&gt;-->
-<!--&lt;!&ndash;6.1、控制器1&ndash;&gt;-->
-<!--<div ng-app="" ng-init="firstName='Jame'">-->
-    <!--名: <input type="text" ng-model="firstName"><br>-->
-    <!--姓: <input type="text" ng-model="lastName"><br>-->
-    <!--姓名：{{firstName + " " + lastName}}-->
-<!--</div>-->
-
-
-
-<!--&lt;!&ndash;6.2、控制器2&ndash;&gt;-->
-<!--<div ng-app="myApp" ng-controller="myCtrl">-->
-    <!--姓名：{{fullname()}}-->
-<!--</div>-->
-<!--<script>-->
-
-    <!--//第一个参数为模块的名称，第二个参数为它的依赖模块列表。创建了一个独立的模块，不依赖于其它模块。所以第二个参数为空数组。-->
-    <!--var app = angular.module('myApp', []);-->
-
-    <!--//controller 获取$scope 对象，用于存储所有controller 暴露的接口和方法。scope 由Angular 传递到视图和指令层。在这个例子中，controller 添加了 firstName 等属性给scope对象。一个应用模块可以包含多个controller，每个controller各司其职，控制一个或多个视图。-->
-    <!--app.controller('myCtrl', function($scope) {-->
-        <!--$scope.firstName = "John";-->
-        <!--$scope.lastName = "Doe";-->
-        <!--$scope.fullname = function () {-->
-            <!--return $scope.firstName + " " + $scope.lastName;-->
-        <!--}-->
-    <!--});-->
-<!--</script>-->
-
-
-
-<!--&lt;!&ndash;6.3、控制器1和2合起来用&ndash;&gt;-->
-<!--<div ng-app="myApp" ng-controller="myCtrl">-->
-    <!--名: <input type="text" ng-model="firstName"><br>-->
-    <!--姓: <input type="text" ng-model="lastName"><br>-->
-    <!--姓名：{{firstName + " " + lastName}}-->
-    <!--姓名：{{fullname()}}-->
-<!--</div>-->
-<!--<script>-->
-    <!--var app = angular.module('myApp', []);-->
-    <!--app.controller('myCtrl', function($scope) {-->
-        <!--$scope.firstName = "John";-->
-        <!--$scope.lastName = "Doe";-->
-        <!--$scope.fullname = function () {-->
-            <!--return $scope.firstName + " " + $scope.lastName;-->
-        <!--}-->
-    <!--});-->
-<!--</script>-->
-
-
-
-<!--&lt;!&ndash;7、ng-reapt指令&ndash;&gt;-->
-<!--&lt;!&ndash;ng-repeat 指令用于克隆 HTML 元素。&ndash;&gt;-->
-<!--&lt;!&ndash;7.1、ng-reapt指令循环数组1&ndash;&gt;-->
-<!--<div data-ng-app="" data-ng-init="names=['Jani','Hege','Kai']">-->
-    <!--<ul>-->
-        <!--<li data-ng-repeat="x in names">-->
-            <!--{{ x }}-->
-        <!--</li>-->
-    <!--</ul>-->
-<!--</div>-->
-
-
-
-<!--&lt;!&ndash;7.2、ng-reapt指令循环数组2&ndash;&gt;-->
-<!--<div ng-app="" ng-init="names=[-->
-    <!--{name:'Jani',country:'Norway'},-->
-    <!--{name:'Hege',country:'Sweden'},-->
-    <!--{name:'Kai',country:'Denmark'}]">-->
-    <!--<ul>-->
-        <!--<li ng-repeat="x in names">-->
-            <!--{{ x.name + ', ' + x.country }}</li>-->
-    <!--</ul>-->
-<!--</div>-->
-
-
-
-<!--&lt;!&ndash;8、自定义指令&ndash;&gt;-->
-<!--<div ng-app="myApp">-->
-    <!--<runoob-directive></runoob-directive>       &lt;!&ndash;调用指令，除此通过元素名调用外，还可通过属性、类名或注释来调用指令。&ndash;&gt;-->
-    <!--<script>-->
-        <!--var app = angular.module("myApp", []);-->
-        <!--app.directive("runoobDirective", function() {   //创建指令-->
-            <!--return {-->
-                <!--restrict : "E",                         //限制只能通过元素名调用指令。-->
-                <!--template : "<h1>自定义指令!</h1>"-->
-            <!--};-->
-        <!--});-->
-    <!--</script>-->
-<!--</div>-->
-
-
-
-<!--&lt;!&ndash;9、验证用户输入&ndash;&gt;-->
-<!--&lt;!&ndash;提示信息会在 ng-show 属性返回 true 的情况下显示&ndash;&gt;-->
-<!--<form ng-app="" name="myForm">-->
-    <!--Email:-->
-    <!--<input type="email" name="myAddress" ng-model="text">-->
-    <!--<span ng-show="myForm.myAddress.$error.email">不是一个合法的邮箱地址</span>-->
-<!--</form>-->
-
-
-
-<!--&lt;!&ndash;10、提供状态值&ndash;&gt;-->
-<!--<form ng-app="" name="myForm" ng-init="myText = 'test@runoob.com'">-->
-    <!--<p>编辑邮箱地址，查看状态的改变。</p>-->
-    <!--<input type="email" name="myAddress" ng-model="myText" required>-->
-    <!--<p>Valid: {{myForm.myAddress.$valid}} (如果输入的值是合法的则为 true)。</p>-->
-    <!--<p>Dirty: {{myForm.myAddress.$dirty}} (如果值改变则为 true)。</p>-->
-    <!--<p>Touched: {{myForm.myAddress.$touched}} (如果通过触屏点击则为 true)。</p>-->
-<!--</form>-->
-
-
-
-<!--&lt;!&ndash;11、CSS样式&ndash;&gt;-->
-<!--&lt;!&ndash;根据状态 设样式&ndash;&gt;-->
-<!--<style>-->
-    <!--input.ng-invalid {-->
-        <!--background-color: lightblue;-->
-    <!--}-->
-    <!--input.ng-valid {-->
-        <!--background-color: lightgreen;-->
-    <!--}-->
-    <!--input.ng-pristine{-->
-        <!--background-color: lightgoldenrodyellow;-->
-    <!--}-->
-<!--</style>-->
-<!--<form ng-app="" name="myForm">-->
-    <!--<input id="input1" name="myName" ng-model="myText" required>-->
-<!--</form>-->
-<!--<p>文本域添加了 required 属性，该值是必须的，如果为空则是不合法的。</p>-->
-
-
-
-<!--&lt;!&ndash;12、$Scope作用域&ndash;&gt;-->
-<!--<div ng-app="myApp" ng-controller="myCtrl">-->
-    <!--<h1>{{carname}}</h1>-->
-<!--</div>-->
-<!--<script>-->
-    <!--var app = angular.module('myApp', []);-->
-    <!--app.controller('myCtrl', function($scope) {-->
-        <!--$scope.carname = "Volvo";   //控制器添加了Scope（Scope是模型）后，Scope的属性可以映射到视图（HTML）的属性。-->
-    <!--});-->
-<!--</script>-->
-
-
-
-<!--&lt;!&ndash;13、Scope 概述&ndash;&gt;-->
-<!--&lt;!&ndash;-->
-<!--AngularJS 应用组成如下 MVC：-->
-<!--View(视图), 即 HTML。-->
-<!--Model(模型), 当前视图中可用的数据。-->
-<!--Controller(控制器), 即 JavaScript 函数，可以添加或修改属性。-->
-<!--scope 是模型。-->
-<!--scope 是一个 JavaScript 对象，带有属性和方法，这些属性和方法可以在视图和控制器中使用。-->
-
-<!--应用解析：-->
-<!--AngularJS 应用程序由 ng-app 定义。应用程序在 <div> 内运行。-->
-<!--ng-controller="myCtrl" 属性是一个 AngularJS 指令。用于定义一个控制器。-->
-<!--myCtrl 函数是一个 JavaScript 函数。-->
-<!--AngularJS 使用$scope 对象来调用控制器。-->
-<!--在 AngularJS 中， $scope 是一个应用对象(属于应用变量和函数)。-->
-<!--控制器的 $scope （相当于作用域、控制范围）用来保存AngularJS Model(模型)的对象。-->
-<!--控制器在作用域中创建了一个属性 (name) 和一个函数 (sayHello)。-->
-<!--ng-model 指令绑定输入域与控制器的属性（name）。-->
-<!--&ndash;&gt;-->
-<!--<div ng-app="myApp" ng-controller="myCtrl">-->
-    <!--<input ng-model="name">-->
-    <!--<h1>{{greeting}}</h1>-->
-    <!--<button ng-click='sayHello()'>点我</button>-->
-<!--</div>-->
-<!--<script>-->
-    <!--var app = angular.module('myApp', []);-->
-    <!--app.controller('myCtrl', function($scope) {-->
-        <!--$scope.name = "Runoob";-->
-        <!--$scope.sayHello = function() {-->
-            <!--$scope.greeting = 'Hello ' + $scope.name + '!';-->
-        <!--};-->
-    <!--});-->
-<!--</script>-->
-
-
-
-<!--&lt;!&ndash;14、rootScope&ndash;&gt;-->
-<!--&lt;!&ndash;-->
-<!--所有的应用都有一个 $rootScope，它可以作用在 ng-app 指令包含的所有 HTML 元素中。-->
-<!--$rootScope 可作用于整个应用中。是各个 controller 中 scope 的桥梁。用 rootscope 定义的值，可以在各个 controller 中使用。-->
-<!--&ndash;&gt;-->
-<!--<div ng-app="myApp" ng-controller="myCtrl">-->
-    <!--<h1>{{lastname}} 家族成员:</h1>-->
-    <!--<ul>-->
-        <!--<li ng-repeat="x in names">{{x}} {{lastname}}</li>-->
-    <!--</ul>-->
-<!--</div>-->
-<!--<script>-->
-    <!--var app = angular.module('myApp', []);-->
-    <!--app.controller('myCtrl', function($scope, $rootScope) {-->
-        <!--$scope.names = ["Emil", "Tobias", "Linus"];-->
-        <!--$rootScope.lastname = "Refsnes";-->
-    <!--});-->
-<!--</script>-->
-
-
-
-
-<!--&lt;!&ndash;15、过滤器&ndash;&gt;&lt;!&ndash;-->
-<!--currency	格式化数字为货币格式。-->
-<!--lowercase	格式化字符串为小写。-->
-<!--uppercase	格式化字符串为大写。-->
-<!--filter	    从数组项中选择一个子集。即使数组项的某属性没显示出来也能用于过滤，如下例在输入裕输入35也能过滤出Jani那条数据，即使视图没有显示age。-->
-<!--orderBy	    根据某个表达式排列数组。-->
-
-<!--&ndash;&gt;-->
-<!--<div ng-app="myApp" ng-controller="namesCtrl">-->
-    <!--<p><input type="text" ng-model="test"></p>-->
-    <!--<ul>-->
-        <!--<li ng-repeat="x in names | filter:test | orderBy:'country'">-->
-            <!--{{ (x.name | uppercase) + ', ' + (x.country | lowercase) + ', ' + (x.salary | currency) }}-->
-        <!--</li>-->
-    <!--</ul>-->
-<!--</div>-->
-<!--<script>-->
-    <!--angular.module('myApp', []).controller('namesCtrl', function($scope) {-->
-    <!--$scope.names = [-->
-    <!--{name:'Jani',country:'Norway',salary:3000,age:35},-->
-    <!--{name:'Hege',country:'Sweden',salary:5000,age:40},-->
-    <!--{name:'Kai',country:'Denmark',salary:8000,age:50}-->
-    <!--];-->
-    <!--});-->
-<!--</script>-->
-
-
-
-<!--&lt;!&ndash;16、自定义过滤器&ndash;&gt;-->
-<!--<div ng-app="myApp" ng-controller="myCtrl">-->
-    <!--{{msg | reverse}}-->
-<!--</div>-->
-<!--<script>-->
-    <!--var app = angular.module('myApp',[]);-->
-    <!--app.controller('myCtrl',function ($scope) {-->
-        <!--$scope.msg = 'james';-->
-    <!--});-->
-    <!--app.filter('reverse',function () {-->
-        <!--return function (text) {-->
-            <!--return text.split("").reverse().join("");-->
-        <!--}-->
-    <!--})-->
-<!--</script>-->
-
-
-
-
-<!--&lt;!&ndash;17、服务&ndash;&gt;-->
-<!--&lt;!&ndash;17.1、$location 服务：获取当前页面的 URL&ndash;&gt;-->
-<!--<div ng-app="myApp" ng-controller="myCtrl">-->
-    <!--<h3>当前页面的url: {{myUrl}}</h3>-->
-<!--</div>-->
-<!--<script>-->
-    <!--var app = angular.module('myApp', []);-->
-    <!--app.controller('myCtrl', function($scope, $location) {-->
-        <!--$scope.myUrl = $location.absUrl();-->
-    <!--});-->
-<!--</script>-->
-
-
-<!--&lt;!&ndash;17.2、$timeout 服务：延时执行。&ndash;&gt;-->
-<!--<div ng-app="myApp" ng-controller="myCtrl">-->
-    <!--<h3>{{ab}}</h3>-->
-<!--</div>-->
-<!--<script>-->
-    <!--var app = angular.module('myApp',[]);-->
-    <!--app.controller('myCtrl',function ($scope, $timeout) {-->
-        <!--$scope.ab = 'James';-->
-        <!--$timeout(function () {-->
-            <!--$scope.ab = 'CHINA';-->
-        <!--}, 5000);-->
-    <!--})-->
-<!--</script>-->
+<!--1、第一个Angular表达式-->
+<div ng-app="">
+    <p>我的第一个表达式： {{ 5 + 5 }}</p>
+</div>
+
+
+<!--2、第一个Angular指令-->
+<div ng-app="" ng-init="a='Jame'">  <!--ng-init初始化AngularJS应用程序变量-->
+    <p><span ng-bind="a"></span></p>
+</div>
+
+
+<!--3、第一个Angular指令（带有效的HTML5）-->
+<div data-ng-app="" data-ng-init="a='Jame'">    <!--HTML5里使用自定义特性时以data-作前缀-->
+    <p><span data-ng-bind="a"></span></p>
+</div>
+
+
+<!--4、ng-model，绑定，下面可“实时”使用-->
+<!--ng-model 特性把它的值和 input 控件进行了双向绑定-->
+<div ng-app="">
+    <p><input type="text" ng-model="a"></p>
+    <p><input type="text" ng-model="b"></p>
+    <p>{{a+b}}</p> <!--相拼接-->
+    <p><input type="number" ng-model="c"></p>
+    <p><input type="number" ng-model="d"></p>
+    <p>{{c+d}}</p> <!--相加-->
+    <p><span ng-bind="c+d"></span></p> <!--相加-->
+</div>
+
+
+
+<!--5、表达式：{{}}-->
+
+<!--5.1、直接表达式-->
+<div ng-app="">
+    <p>{{ 5 + 5 }}</p>
+</div>
+
+
+<!--5.1、使用变量-->
+<div ng-app="" ng-init="a='2'; b='5'; c=2; d=5; e={name:'jame', age:20}; f=[3,5,6,1,12,54]">
+    <p>{{ a + b }}</p>
+    <p><span ng-bind=" a + b "></span></p> <!--ng-bind 指令里可放表达式-->
+    <p>{{ c + d }}</p>
+    <p><span ng-bind=" c + d "></span></p>
+    <p>{{ e.age }}</p>
+    <p><span ng-bind=" e.age "></span></p>
+    <p>{{ f[2] }}</p>
+    <p><span ng-bind=" f[2] "></span></p>
+</div>
+
+
+
+<!--6、控制器1。ng-model指令。-->
+<!--6.1、控制器1-->
+<div ng-app="" ng-init="firstName='Jame'">
+    名: <input type="text" ng-model="firstName"><br>
+    姓: <input type="text" ng-model="lastName"><br>
+    姓名：{{firstName + " " + lastName}}
+</div>
+
+
+
+<!--6.2、控制器2-->
+<div ng-app="myApp" ng-controller="myCtrl">
+    姓名：{{fullname()}}
+</div>
+<script>
+
+    //第一个参数为模块的名称，第二个参数为它的依赖模块列表。创建了一个独立的模块，不依赖于其它模块。所以第二个参数为空数组。
+    var app = angular.module('myApp', []);
+
+    //controller 获取$scope 对象，用于存储所有controller 暴露的接口和方法。scope 由Angular 传递到视图和指令层。在这个例子中，controller 添加了 firstName 等属性给scope对象。一个应用模块可以包含多个controller，每个controller各司其职，控制一个或多个视图。
+    app.controller('myCtrl', function($scope) {
+        $scope.firstName = "John";
+        $scope.lastName = "Doe";
+        $scope.fullname = function () {
+            return $scope.firstName + " " + $scope.lastName;
+        }
+    });
+</script>
+
+
+
+<!--6.3、控制器1和2合起来用-->
+<div ng-app="myApp" ng-controller="myCtrl">
+    名: <input type="text" ng-model="firstName"><br>
+    姓: <input type="text" ng-model="lastName"><br>
+    姓名：{{firstName + " " + lastName}}
+    姓名：{{fullname()}}
+</div>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.firstName = "John";
+        $scope.lastName = "Doe";
+        $scope.fullname = function () {
+            return $scope.firstName + " " + $scope.lastName;
+        }
+    });
+</script>
+
+
+
+<!--7、ng-reapt指令-->
+<!--ng-repeat 指令用于克隆 HTML 元素。-->
+<!--7.1、ng-reapt指令循环数组1-->
+<div data-ng-app="" data-ng-init="names=['Jani','Hege','Kai']">
+    <ul>
+        <li data-ng-repeat="x in names">
+            {{ x }}
+        </li>
+    </ul>
+</div>
+
+
+
+<!--7.2、ng-reapt指令循环数组2-->
+<div ng-app="" ng-init="names=[
+    {name:'Jani',country:'Norway'},
+    {name:'Hege',country:'Sweden'},
+    {name:'Kai',country:'Denmark'}]">
+    <ul>
+        <li ng-repeat="x in names">
+            {{ x.name + ', ' + x.country }}</li>
+    </ul>
+</div>
+
+
+
+<!--8、自定义指令-->
+<div ng-app="myApp">
+    <runoob-directive></runoob-directive>       <!--调用指令，除此通过元素名调用外，还可通过属性、类名或注释来调用指令。-->
+    <script>
+        var app = angular.module("myApp", []);
+        app.directive("runoobDirective", function() {   //创建指令
+            return {
+                restrict : "E",                         //限制只能通过元素名调用指令。
+                template : "<h1>自定义指令!</h1>"
+            };
+        });
+    </script>
+</div>
+
+
+
+<!--9、验证用户输入-->
+<!--提示信息会在 ng-show 属性返回 true 的情况下显示-->
+<form ng-app="" name="myForm">
+    Email:
+    <input type="email" name="myAddress" ng-model="text">
+    <span ng-show="myForm.myAddress.$error.email">不是一个合法的邮箱地址</span>
+</form>
+
+
+
+<!--10、提供状态值-->
+<form ng-app="" name="myForm" ng-init="myText = 'test@runoob.com'">
+    <p>编辑邮箱地址，查看状态的改变。</p>
+    <input type="email" name="myAddress" ng-model="myText" required>
+    <p>Valid: {{myForm.myAddress.$valid}} (如果输入的值是合法的则为 true)。</p>
+    <p>Dirty: {{myForm.myAddress.$dirty}} (如果值改变则为 true)。</p>
+    <p>Touched: {{myForm.myAddress.$touched}} (如果通过触屏点击则为 true)。</p>
+</form>
+
+
+
+<!--11、CSS样式-->
+<!--根据状态 设样式-->
+<style>
+    input.ng-invalid {
+        background-color: lightblue;
+    }
+    input.ng-valid {
+        background-color: lightgreen;
+    }
+    input.ng-pristine{
+        background-color: lightgoldenrodyellow;
+    }
+</style>
+<form ng-app="" name="myForm">
+    <input id="input1" name="myName" ng-model="myText" required>
+</form>
+<p>文本域添加了 required 属性，该值是必须的，如果为空则是不合法的。</p>
+
+
+
+<!--12、$Scope作用域-->
+<div ng-app="myApp" ng-controller="myCtrl">
+    <h1>{{carname}}</h1>
+</div>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.carname = "Volvo";   //控制器添加了Scope（Scope是模型）后，Scope的属性可以映射到视图（HTML）的属性。
+    });
+</script>
+
+
+
+<!--13、Scope 概述-->
+<!--
+AngularJS 应用组成如下 MVC：
+View(视图), 即 HTML。
+Model(模型), 当前视图中可用的数据。
+Controller(控制器), 即 JavaScript 函数，可以添加或修改属性。
+scope 是模型。
+scope 是一个 JavaScript 对象，带有属性和方法，这些属性和方法可以在视图和控制器中使用。
+
+应用解析：
+AngularJS 应用程序由 ng-app 定义。应用程序在 <div> 内运行。
+ng-controller="myCtrl" 属性是一个 AngularJS 指令。用于定义一个控制器。
+myCtrl 函数是一个 JavaScript 函数。
+AngularJS 使用$scope 对象来调用控制器。
+在 AngularJS 中， $scope 是一个应用对象(属于应用变量和函数)。
+控制器的 $scope （相当于作用域、控制范围）用来保存AngularJS Model(模型)的对象。
+控制器在作用域中创建了一个属性 (name) 和一个函数 (sayHello)。
+ng-model 指令绑定输入域与控制器的属性（name）。
+-->
+<div ng-app="myApp" ng-controller="myCtrl">
+    <input ng-model="name">
+    <h1>{{greeting}}</h1>
+    <button ng-click='sayHello()'>点我</button>
+</div>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.name = "Runoob";
+        $scope.sayHello = function() {
+            $scope.greeting = 'Hello ' + $scope.name + '!';
+        };
+    });
+</script>
+
+
+
+<!--14、rootScope-->
+<!--
+所有的应用都有一个 $rootScope，它可以作用在 ng-app 指令包含的所有 HTML 元素中。
+$rootScope 可作用于整个应用中。是各个 controller 中 scope 的桥梁。用 rootscope 定义的值，可以在各个 controller 中使用。
+-->
+<div ng-app="myApp" ng-controller="myCtrl">
+    <h1>{{lastname}} 家族成员:</h1>
+    <ul>
+        <li ng-repeat="x in names">{{x}} {{lastname}}</li>
+    </ul>
+</div>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope, $rootScope) {
+        $scope.names = ["Emil", "Tobias", "Linus"];
+        $rootScope.lastname = "Refsnes";
+    });
+</script>
+
+
+
+
+<!--15、过滤器--><!--
+currency	格式化数字为货币格式。
+lowercase	格式化字符串为小写。
+uppercase	格式化字符串为大写。
+filter	    从数组项中选择一个子集。即使数组项的某属性没显示出来也能用于过滤，如下例在输入裕输入35也能过滤出Jani那条数据，即使视图没有显示age。
+orderBy	    根据某个表达式排列数组。
+
+-->
+<div ng-app="myApp" ng-controller="namesCtrl">
+    <p><input type="text" ng-model="test"></p>
+    <ul>
+        <li ng-repeat="x in names | filter:test | orderBy:'country'">
+            {{ (x.name | uppercase) + ', ' + (x.country | lowercase) + ', ' + (x.salary | currency) }}
+        </li>
+    </ul>
+</div>
+<script>
+    angular.module('myApp', []).controller('namesCtrl', function($scope) {
+    $scope.names = [
+    {name:'Jani',country:'Norway',salary:3000,age:35},
+    {name:'Hege',country:'Sweden',salary:5000,age:40},
+    {name:'Kai',country:'Denmark',salary:8000,age:50}
+    ];
+    });
+</script>
+
+
+
+<!--16、自定义过滤器-->
+<div ng-app="myApp" ng-controller="myCtrl">
+    {{msg | reverse}}
+</div>
+<script>
+    var app = angular.module('myApp',[]);
+    app.controller('myCtrl',function ($scope) {
+        $scope.msg = 'james';
+    });
+    app.filter('reverse',function () {
+        return function (text) {
+            return text.split("").reverse().join("");
+        }
+    })
+</script>
+
+
+
+
+<!--17、服务-->
+<!--17.1、$location 服务：获取当前页面的 URL-->
+<div ng-app="myApp" ng-controller="myCtrl">
+    <h3>当前页面的url: {{myUrl}}</h3>
+</div>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope, $location) {
+        $scope.myUrl = $location.absUrl();
+    });
+</script>
+
+
+<!--17.2、$timeout 服务：延时执行。-->
+<div ng-app="myApp" ng-controller="myCtrl">
+    <h3>{{ab}}</h3>
+</div>
+<script>
+    var app = angular.module('myApp',[]);
+    app.controller('myCtrl',function ($scope, $timeout) {
+        $scope.ab = 'James';
+        $timeout(function () {
+            $scope.ab = 'CHINA';
+        }, 5000);
+    })
+</script>
 
 
 <!--17.3、$interval 服务：周期性执行。-->
