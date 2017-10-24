@@ -1,4 +1,4 @@
-﻿<!--此案例使用bootstrap3。-->
+<!--此案例使用bootstrap3。-->
 <!--myworking-->
 
 <!DOCTYPE html>
@@ -179,6 +179,7 @@
                         counterSession = $scope.sessionMin * 60;
                         counterBreak--;
                         $('#pomodoro > span > span').css('height', (1-(counterBreak/baseCounterBreak))*spanHeight+'px');
+                        $('#pomodoro > span > span').css('background-color', 'rgb(255, 68, 68)');
                     }
                     if(status === 1){
                         //显示 Session 字样
@@ -188,6 +189,7 @@
                         counterBreak = $scope.breakMin * 60;
                         counterSession--;
                         $('#pomodoro > span > span').css('height', (1-(counterSession/baseCounterSession))*spanHeight+'px');
+                        $('#pomodoro > span > span').css('background-color', 'rgb(153, 204, 0)');
                     }
 
 
