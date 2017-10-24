@@ -1,0 +1,148 @@
+﻿<!--此案例使用bootstrap3。-->
+<!--myworking-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>聚合数据天气应用</title>
+
+
+    <link href="myworkingForCodepen.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="bootstrap-3.3.7/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <script>
+
+        $(document).ready(function () {
+            $.get("https://v.juhe.cn/weather/index?cityname=%E4%BD%9B%E5%B1%B1&dtype=&format=&key=4034692b1acc74a665b8679775f340d2",function (json) {
+
+                //今天天气
+                $("#genSituation p")[0].innerHTML += json.result.today.city;
+                $("#genSituation p")[1].innerHTML += json.result.today.week;
+                $("#genSituation p")[2].innerHTML += json.result.today.date_y;
+                $("#genSituation p")[3].innerHTML += json.result.today.weather;
+                $("#genSituation p")[4].innerHTML += json.result.today.temperature;
+                $("#genSituation p")[5].innerHTML += json.result.sk.humidity;
+                $("#genSituation p")[6].innerHTML += json.result.sk.wind_direction + " " + json.result.sk.wind_strength;
+                $("#genSituation p")[7].innerHTML += json.result.today.dressing_index;
+                $("#genSituation p")[8].innerHTML += json.result.today.wash_index;
+                $("#genSituation p")[9].innerHTML += json.result.today.travel_index;
+                $("#genSituation p")[10].innerHTML += json.result.today.exercise_index;
+                $("#genSituation p")[11].innerHTML += json.result.today.uv_index;
+
+                //未来6天
+                var arr_future = Object.keys(json.result.future);
+                var html = "";
+                arr_future.forEach(function (p) {
+                    html +="<div>" + "<h5>" + json.result.future[p].week + "</h5>" +
+                        "<p>" + json.result.future[p].temperature + "</p>" +
+                        "<p>" + json.result.future[p].weather + "</p>" +
+                        "<p>" + json.result.future[p].wind + "</p>" + "</div>";
+                });
+                $("#futureDate")[0].innerHTML = html;
+                console.log(html);
+
+
+            },"jsonp");
+        });
+    </script>
+
+
+</head>
+<body>
+<div class="container" ng-controller="MainCtrl">
+    <div class="row">
+        <header class="col-xs-12 text-center">
+            <a href="https://www.juhe.cn"><img src="https://www.juhe.cn/themes/v5/public/images/loginlogo.png" class="img-responsive"></a>
+            <h1>天气应用</h1>
+        </header>
+    </div>
+    <div class="col-xs-12 col-md-12">
+        <div class="text-center status" id="genSituation">
+            <p></p> <!--city-->
+            <p></p> <!--week-->
+            <p></p> <!--date_y-->
+            <hr>
+            <h4>今天天气</h4>
+            <p></p> <!--weather-->
+            <p></p> <!--temperature-->
+            <p>湿度：</p> <!--humidity-->
+            <p></p> <!--wind-->
+            <p>穿衣指数：</p> <!--dressing_index-->
+            <p>洗车指数：</p> <!--wash_index-->
+            <p>旅行指数：</p> <!--travel_index-->
+            <p>锻炼指数：</p> <!--exercise_index-->
+            <p>紫外线指数：</p> <!--uv_index-->
+        </div>
+        <hr>
+    </div>
+    <h4 class="text-center">未来6天天气</h4>
+    <div class="col-xs-12 col-md-12">
+        <div class="text-center status" id="futureDate">
+            <!--<div>-->
+                <!--<h5>星期四</h5>-->
+                <!--<p>26℃~32℃</p>-->
+                <!--<p>阵雨转多云</p>-->
+                <!--<p>微风</p>-->
+            <!--</div>-->
+            <!--<div>-->
+                <!--<h5>星期五</h5>-->
+                <!--<p>26℃~34℃</p>-->
+                <!--<p>阵雨转多云</p>-->
+                <!--<p>微风</p>-->
+            <!--</div>-->
+            <!--<div>-->
+                <!--<h5>星期六</h5>-->
+                <!--<p>26℃~35℃</p>-->
+                <!--<p>晴</p>-->
+                <!--<p>微风</p>-->
+            <!--</div>-->
+            <!--<div>-->
+                <!--<h5>星期日</h5>-->
+                <!--<p>27℃~35℃</p>-->
+                <!--<p>晴</p>-->
+                <!--<p>微风</p>-->
+            <!--</div>-->
+            <!--<div>-->
+                <!--<h5>星期一</h5>-->
+                <!--<p>27℃~35℃</p>-->
+                <!--<p>晴</p>-->
+                <!--<p>微风</p>-->
+            <!--</div>-->
+            <!--<div>-->
+                <!--<h5>星期二</h5>-->
+                <!--<p>26℃~34℃</p>-->
+                <!--<p>阵雨转多云</p>-->
+                <!--<p>微风</p>-->
+            <!--</div>-->
+            <!--<div>-->
+                <!--<h5>星期三</h5>-->
+                <!--<p>27℃~35℃</p>-->
+                <!--<p>晴</p>-->
+                <!--<p>微风</p>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

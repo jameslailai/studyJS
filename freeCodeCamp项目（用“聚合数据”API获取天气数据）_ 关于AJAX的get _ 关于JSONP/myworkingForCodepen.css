@@ -1,0 +1,58 @@
+body,h1,h2,h3,h4,h5,p,dl,dd,ul,ol,form,input,textarea,th,td,select,li { margin:0; padding:0}
+h1,h2,h3 { font-weight: bold !important;}
+em { font-style:normal;} 					/* <!------将em强调标签里的字体设为普通------> */
+li { list-style:none;} 							/* <!------列表项开头的标记去掉------->*/
+a { text-decoration:none; margin: 0;}							/* <!------文本修饰，不要下划线------> */
+img { border:none; vertical-align:top;}				/* <!------垂直对齐：top------> */
+input {border:none;}
+table { border-collapse:collapse;}					/* <!------表格边框合并（取消两单元格间的间隙）------> */
+input, textarea { outline:none;}					/* <!------输入字段、多行文本输入框：轮廓（边框外的一条线）为none-----> */
+textarea { resize:none; overflow:auto;}				/* <!-------不允许拖拉文本框（resize）。如果内容被修剪，则浏览器会显示滚动条（overflow）。-----> */
+body { font-size:12px; font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;}
+
+
+/*--------------------------------------------*/
+
+
+header{ margin: 20px 0;}
+img{margin:0 auto;}
+a{
+    display: inline-block;
+}
+h1{
+    display: inline-block;
+    vertical-align: 8px;
+    color: cornflowerblue!important;
+    margin: 0!important;
+    position: relative;
+    top: -4px;
+}
+
+
+
+#futureDate{
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#futureDate::after{
+    content: "";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}
+
+
+#genSituation p:nth-of-type(1){
+    font-size: x-large;
+}
+
+#futureDate div{
+    float: left;
+    width: 90px;
+    margin: 0 5px;
+}
+
