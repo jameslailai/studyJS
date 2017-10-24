@@ -1,0 +1,112 @@
+body,h1,h2,h3,h4,h5,p,dl,dd,ul,ol,form,input,textarea,th,td,select,li { margin:0; padding:0}
+h1,h2,h3 { font-weight: bold;}
+em { font-style:normal;} 					/* <!------将em强调标签里的字体设为普通------> */
+li { list-style:none;} 							/* <!------列表项开头的标记去掉------->*/
+a { text-decoration:none; margin: 0;}							/* <!------文本修饰，不要下划线------> */
+img { border:none; vertical-align:top;}				/* <!------垂直对齐：top------> */
+input {border:none;}
+table { border-collapse:collapse;}					/* <!------表格边框合并（取消两单元格间的间隙）------> */
+input, textarea { outline:none;}					/* <!------输入字段、多行文本输入框：轮廓（边框外的一条线）为none-----> */
+textarea { resize:none; overflow:auto;}				/* <!-------不允许拖拉文本框（resize）。如果内容被修剪，则浏览器会显示滚动条（overflow）。-----> */
+body { font-size:12px; font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;}
+button { background-color: inherit; border: none;}
+
+/*--------------------------------------------*/
+#main h1, #main > div > p, #breakLen > div > div, #sessionLen > div > div, #spead > div > div, #breakLen button, #sessionLen button, #spead button
+{
+    color: #FFF;
+}
+
+
+body{
+    background-color: #333!important;
+}
+
+#main h1{
+    font-family: 'Pacifico';
+    text-align: center;
+    font-size: 5em;
+    margin: 60px 0;
+    font-weight: bolder;
+}
+
+#main{
+    width: 900px;
+}
+
+#main > div > p{
+    text-align: center;
+    line-height: 100%;
+    height: 30px;
+    margin-bottom: 0;
+}
+
+#breakLen, #sessionLen, #spead{
+    height: 37px!important;
+    margin-bottom: 40px;
+}
+
+#breakLen > div, #sessionLen > div, #spead > div{
+    width: 100%;
+    margin: 0;
+    line-height: 37px;
+}
+
+#breakLen > div > div, #sessionLen > div > div, #spead > div > div{
+    text-align: center;
+    font-size: 2em;
+}
+
+#breakLen button, #sessionLen button, #spead button{
+    text-align: center;
+    font-size: 25px;
+    padding: 0;
+    font-family: Open Sans, Arial;
+}
+
+#pomodoro{
+    height: 300px;
+    width: 300px;
+    border: solid 2px greenyellow;
+    border-radius: 50%;
+    margin: 30px auto;
+    overflow: hidden;
+    position: relative;
+}
+
+#pomodoro > span{
+    height: 290px;
+    width: 290px;
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#pomodoro > span > span{
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    background-color: greenyellow;
+}
+
+#pomodoro > div > div{
+    height: 110px;
+    color: #fff;
+    line-height: 110px;
+    text-align: center;
+}
+
+#pomodoro > div > div:nth-child(1){
+    margin-top: 40px;
+    font-size: 4.5em;
+}
+
+#pomodoro > div > div:nth-child(2){
+    margin-bottom: 40px;
+    font-size: 5em;
+}
