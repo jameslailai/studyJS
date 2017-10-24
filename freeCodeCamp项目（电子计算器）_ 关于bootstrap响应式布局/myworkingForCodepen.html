@@ -1,0 +1,173 @@
+﻿<!--此案例使用bootstrap3。-->
+<!--myworking-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>计算器</title>
+
+
+    <link href="myworkingForCodepen.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="bootstrap-3.3.7/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <script>
+        var hasRedu = false;
+
+        //在显示屏输入值
+        function putInMoni(a){
+            //检查是否按过=号，是则清空屏幕
+            if(hasRedu){
+                cleanMoni();
+                hasRedu = false;
+            }
+            document.getElementById('monitor').getElementsByTagName('div')[0].getElementsByTagName('div')[0].getElementsByTagName('div')[0].innerText += a.innerText;
+        }
+
+        //清除全部值
+        function cleanMoni() {
+            document.getElementById('monitor').getElementsByTagName('div')[0].getElementsByTagName('div')[0].getElementsByTagName('div')[0].innerText = "";
+        }
+
+        //清除最后一个值
+        function cleanMoniLas() {
+            var val = document.getElementById('monitor').getElementsByTagName('div')[0].getElementsByTagName('div')[0].getElementsByTagName('div')[0].innerText;
+            document.getElementById('monitor').getElementsByTagName('div')[0].getElementsByTagName('div')[0].getElementsByTagName('div')[0].innerText = val.replace(/.$/,"");
+        }
+
+        //计算结果
+        function redu() {
+            var resu = eval(document.getElementById('monitor').getElementsByTagName('div')[0].getElementsByTagName('div')[0].getElementsByTagName('div')[0].innerText);
+            document.getElementById('monitor').getElementsByTagName('div')[0].getElementsByTagName('div')[0].getElementsByTagName('div')[0].innerText = resu;
+            hasRedu = true;
+        }
+
+        $(document).ready(function () {
+        });
+
+    </script>
+
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+            <div id="calculator">
+                <div id="monitor" class="row">
+                    <div class="col-xs-8 col-xs-offset-2">
+                        <div>
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--响应式布局-->
+                <div id="row_1" class="row">
+                    <div id="ac" class="col-xs-2 col-xs-offset-2">
+                        <div onclick="cleanMoni()">AC</div>
+                    </div>
+                    <div id="ce" class="col-xs-2">
+                        <div onclick="cleanMoniLas()">CE</div>
+                    </div>
+                    <div id="persend" class="col-xs-2">
+                        <div>%</div>
+                    </div>
+                    <div id="divide" class="col-xs-2">
+                        <div onclick="putInMoni(this)">/</div>
+                    </div>
+                </div>
+                <!--响应式布局-->
+                <div id="row_2" class="row">
+                    <div class="col-lg-1 col-xs-2 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+                        <div class="hidden-md hidden-sm hidden-xs" onclick="putInMoni(this)">1</div>
+                        <div class="hidden-lg" onclick="putInMoni(this)">7</div>
+                    </div>
+                    <div class="col-lg-1 col-xs-2">
+                        <div class="hidden-md hidden-sm hidden-xs" onclick="putInMoni(this)">2</div>
+                        <div class="hidden-lg" onclick="putInMoni(this)">8</div>
+                    </div>
+                    <div class="col-lg-1 col-xs-2">
+                        <div class="hidden-md hidden-sm hidden-xs" onclick="putInMoni(this)">3</div>
+                        <div class="hidden-lg" onclick="putInMoni(this)">9</div>
+                    </div>
+                    <div class="col-lg-1 col-xs-2">
+                        <div class="hidden-md hidden-sm hidden-xs" onclick="putInMoni(this)">4</div>
+                        <div class="hidden-lg" onclick="putInMoni(this)">*</div>
+                    </div>
+                    <div class="col-lg-1 col-xs-2 col-lg-offset-0 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+                        <div class="hidden-md hidden-sm hidden-xs" onclick="putInMoni(this)">5</div>
+                        <div class="hidden-lg" onclick="putInMoni(this)">4</div>
+                    </div>
+                    <div class="col-lg-1 col-xs-2">
+                        <div class="hidden-md hidden-sm hidden-xs" onclick="putInMoni(this)">6</div>
+                        <div class="hidden-lg" onclick="putInMoni(this)">5</div>
+                    </div>
+                    <div class="col-lg-1 col-xs-2">
+                        <div class="hidden-md hidden-sm hidden-xs" onclick="putInMoni(this)">+</div>
+                        <div class="hidden-lg" onclick="putInMoni(this)">6</div>
+                    </div>
+                    <div class="col-lg-1 col-xs-2">
+                        <div class="hidden-md hidden-sm hidden-xs" onclick="putInMoni(this)">-</div>
+                        <div class="hidden-lg" onclick="putInMoni(this)">-</div>
+                    </div>
+                    <div class="col-lg-1 col-xs-2 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+                        <div class="hidden-md hidden-sm hidden-xs" onclick="putInMoni(this)">7</div>
+                        <div class="hidden-lg" onclick="putInMoni(this)">1</div>
+                    </div>
+                    <div class="col-lg-1 col-xs-2">
+                        <div class="hidden-md hidden-sm hidden-xs" onclick="putInMoni(this)">8</div>
+                        <div class="hidden-lg" onclick="putInMoni(this)">2</div>
+                    </div>
+                    <div class="col-lg-1 col-xs-2">
+                        <div class="hidden-md hidden-sm hidden-xs" onclick="putInMoni(this)">9</div>
+                        <div class="hidden-lg" onclick="putInMoni(this)">3</div>
+                    </div>
+                    <div class="col-lg-1 col-xs-2">
+                        <div class="hidden-md hidden-sm hidden-xs" onclick="putInMoni(this)">0</div>
+                        <div class="hidden-lg" onclick="putInMoni(this)">+</div>
+                    </div>
+                    <div class="col-lg-1 col-xs-2 col-lg-offset-0 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+                        <div class="hidden-md hidden-sm hidden-xs">ANS</div>
+                        <div class="hidden-lg" onclick="putInMoni(this)">.</div>
+                    </div>
+                    <div class="col-lg-1 col-xs-2">
+                        <div class="hidden-md hidden-sm hidden-xs" onclick="redu()">=</div>
+                        <div class="hidden-lg" onclick="putInMoni(this)">0</div>
+                    </div>
+                    <div class="col-lg-1 col-xs-2">
+                        <div class="hidden-md hidden-sm hidden-xs" onclick="putInMoni(this)">*</div>
+                        <div class="hidden-lg">ANS</div>
+                    </div>
+                    <div class="col-lg-1 col-xs-2">
+                        <div class="hidden-md hidden-sm hidden-xs" onclick="putInMoni(this)">.</div>
+                        <div class="hidden-lg" onclick="redu()">=</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
