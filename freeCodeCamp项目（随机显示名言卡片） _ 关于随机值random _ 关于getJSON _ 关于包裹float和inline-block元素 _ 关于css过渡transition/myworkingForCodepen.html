@@ -1,0 +1,135 @@
+﻿<!--此案例使用bootstrap3。-->
+<!--myworking-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>myworkingForCodepen</title>
+
+
+    <link href="myworkingForCodepen.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="bootstrap-3.3.7/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <!--<![endif]&ndash;&gt;-->
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet/less" type="text/css" href="styles.less" />
+     <!--set options before less.js script-->
+    <script>
+        less = {
+            env: "development",
+            async: false,
+            fileAsync: false,
+            poll: 1000,
+            functions: {},
+            dumpLineNumbers: "comments",
+            relativeUrls: false,
+            rootpath: ":/a.com/"
+        };
+    </script>
+    <!--<script src="https://cdn.bootcss.com/less.js/3.0.0-pre.4/less.js"></script>-->
+
+    <script>
+
+
+        var htmlIconQuoteLeft = '<i class="icon-quote-left">';
+
+
+        // 用原生js，对应下面的card
+        function quote() {
+            $.getJSON("myworkingForCodepen.json",function (jsons) {
+                var randomNum = Math.floor(Math.random()*jsons.length); //随机挑json对象
+                document.getElementById("sentence").getElementsByTagName("div")[0].innerHTML = htmlIconQuoteLeft + " " + jsons[randomNum].sentence;
+                document.getElementById("sentence").getElementsByTagName("div")[1].innerText = jsons[randomNum].author;
+                document.getElementsByTagName("body")[0].setAttribute("style","background-color:"+jsons[randomNum].color+"!important;" + "transition: background-color 2s;");
+                document.getElementsByClassName("button")[0].setAttribute("style","background-color:"+jsons[randomNum].color+"!important;" + "transition: background-color 2s;");
+                document.getElementsByClassName("button")[1].setAttribute("style","background-color:"+jsons[randomNum].color+"!important;" + "transition: background-color 2s;");
+                document.getElementById("newQuote").setAttribute("style","background-color:"+jsons[randomNum].color+"!important;" + "transition: background-color 2s;");
+                document.getElementById("sentence").setAttribute("style","color:"+jsons[randomNum].color+"!important;" + "transition: color 2s;");
+            });
+        }
+
+
+        //  用jQuery，对应下面的card2
+        $(document).ready(function () {
+            $("#newQuote2").on("click",function () {
+                $.getJSON("myworkingForCodepen.json",function (jsons) {
+                    var randomNum = Math.floor(Math.random()*jsons.length); //随机挑json对象
+                    document.getElementById("sentence2").getElementsByTagName("div")[0].innerHTML = htmlIconQuoteLeft + " " + jsons[randomNum].sentence;
+                    document.getElementById("sentence2").getElementsByTagName("div")[1].innerText = jsons[randomNum].author;
+                    document.getElementsByTagName("body")[0].setAttribute("style","background-color:"+jsons[randomNum].color+"!important;" + "transition: background-color 2s;");
+                    document.getElementsByClassName("button2")[0].setAttribute("style","background-color:"+jsons[randomNum].color+"!important;" + "transition: background-color 2s;");
+                    document.getElementsByClassName("button2")[1].setAttribute("style","background-color:"+jsons[randomNum].color+"!important;" + "transition: background-color 2s;");
+                    document.getElementById("newQuote2").setAttribute("style","background-color:"+jsons[randomNum].color+"!important;" + "transition: background-color 2s;");
+                    document.getElementById("sentence2").setAttribute("style","color:"+jsons[randomNum].color+"!important;" + "transition: color 2s;");
+                });
+            })
+        })
+
+    </script>
+
+
+
+</head>
+<body>
+
+
+<main>
+
+    <section id="card">
+        <div id="sentence">
+            <div><i class="icon-quote-left"></i>...</div>
+            <div>...</div>
+        </div>
+        <div id="buttons">
+            <a class="button" href=""><i class="icon-twitter icon-large"></i></a>
+            <a class="button" href=""><i class="icon-facebook icon-large"></i></a>
+            <button id="newQuote" type="button" onclick="quote()">点击切换</button>
+        </div>
+    </section>
+    <p id="footer">by James 用原生JS</p>
+
+
+    <section id="card2">
+        <div id="sentence2">
+            <div><i class="icon-quote-left"></i>...</div>
+            <div>...</div>
+        </div>
+        <div id="buttons2">
+            <a class="button2" href=""><i class="icon-twitter icon-large"></i></a>
+            <a class="button2" href=""><i class="icon-facebook icon-large"></i></a>
+            <button id="newQuote2" type="button">点击切换</button>
+        </div>
+    </section>
+    <p id="footer2">by James 用jQuery</p>
+
+</main>
+
+
+
+
+
+
+
+
+</body>
+</html>
+

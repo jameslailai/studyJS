@@ -1,0 +1,121 @@
+body,h1,h2,h3,h4,h5,p,dl,dd,ul,ol,form,input,textarea,th,td,select,li { margin:0; padding:0}
+h1,h2,h3 { font-weight: bold !important;}
+em { font-style:normal;} 					/* <!------将em强调标签里的字体设为普通------> */
+li { list-style:none;} 							/* <!------列表项开头的标记去掉------->*/
+a { text-decoration:none; margin: 0;}							/* <!------文本修饰，不要下划线------> */
+img { border:none; vertical-align:top;}				/* <!------垂直对齐：top------> */
+input {border:none;}
+table { border-collapse:collapse;}					/* <!------表格边框合并（取消两单元格间的间隙）------> */
+input, textarea { outline:none;}					/* <!------输入字段、多行文本输入框：轮廓（边框外的一条线）为none-----> */
+textarea { resize:none; overflow:auto;}				/* <!-------不允许拖拉文本框（resize）。如果内容被修剪，则浏览器会显示滚动条（overflow）。-----> */
+body { font-size:12px; font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;}
+
+
+/*--------------------------------------------*/
+
+
+
+
+/*专门用来统一设置颜色*/
+body, .button, .button2, #newQuote, #newQuote2{
+  background-color: darkorange!important;
+  transition: color 2s;
+}
+
+#sentence,
+#sentence2{
+color: darkorange;
+}
+
+
+
+
+body{
+  font-family:'Raleway', sans-serif;
+}
+
+
+#card,
+#card2{
+  background-color: white;
+  width: 550px;
+  padding: 40px 50px;
+  margin-top: 95px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+#sentence div:nth-child(1),
+#sentence2 div:nth-child(1){
+  font-size: 28px;
+  text-align: center;
+}
+
+
+
+#sentence div:nth-child(1) i::after,
+#sentence2 div:nth-child(1) i::after{
+  content: " ";
+}
+
+
+#sentence div:nth-child(2), #sentence div:nth-child(2)::before,
+#sentence2 div:nth-child(2), #sentence2 div:nth-child(2)::before{
+  font-size: 16px;
+  text-align: right;
+}
+
+
+#sentence div:nth-child(2)::before,
+#sentence2 div:nth-child(2)::before{
+  content: "- ";
+}
+
+
+#buttons::after,
+#buttons2::after{
+  content: '';
+  visibility: hidden;
+  height: 0;
+  display: block;
+  clear:both;
+}
+
+.button,
+.button2{
+  float: left;
+  margin-top: 30px;
+  margin-right: 5px;
+  height: 38px;
+  width: 40px;
+}
+
+#newQuote,
+#newQuote2{
+  color: white;
+  float: right;
+  margin-top: 30px;
+  height: 38px;
+  width: 90px;
+  border: 0px;
+  padding: 0;
+}
+
+
+
+.button i,
+.button2 i{
+  color: white;
+  padding-top: 10px;
+  display: block!important;
+  text-align: center;
+}
+
+
+
+#footer,
+#footer2{
+  text-align: center;
+}
+
