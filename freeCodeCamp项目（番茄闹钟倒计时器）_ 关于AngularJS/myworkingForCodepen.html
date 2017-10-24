@@ -1,0 +1,271 @@
+﻿<!--此案例使用bootstrap3。-->
+<!--myworking-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>番茄闹钟</title>
+
+
+    <link href="myworkingForCodepen.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="bootstrap-3.3.7/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet">
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+
+
+    <script>
+
+
+        var app = angular.module('clockTimer', []);
+
+        app.controller("myCtrl",function ($scope, $interval){
+            var isOnOrOff = 0;      // 0 代表当前是停止中，1 代表当前是计时中
+            var status = 1;         // 1 代表当前是工作计时（session）阶段，0 代表当前是休息计时（break）阶段，
+            $scope.sessionMin = 1;  // 工作（session）时长
+            $scope.breakMin = 1;    // 休息（break）时长
+            $scope.spead = 100;     // 计时速度
+            var startSec = 0;       // 显示的秒
+            var startMin = $scope.sessionMin;   // 显示的分钟
+            var mytimer = null;
+            $scope.timeLeft = 1;
+            $scope.sessionName = 'Session';
+
+
+            var counterBreak = $scope.breakMin * 60;        //用于进度条
+            var counterSession = $scope.sessionMin * 60;    //用于进度条
+            var baseCounterBreak = counterBreak;            //用于进度条
+            var baseCounterSession = counterSession;        //用于进度条
+            var expression = /(px)$/gi;                     //正则表达式
+            var spanHeight = Number($('#pomodoro > span').css('height').replace(expression,""));     //用于进度条
+
+
+
+            //点击启动/暂停计时
+            document.getElementById("pomodoro").onclick = function () {
+                if(isOnOrOff===1){
+                    $interval.cancel(mytimer);
+                    isOnOrOff = 0;
+                }
+                else if(isOnOrOff===0){
+                    inte();
+                    isOnOrOff = 1;
+                }
+
+            };
+
+
+
+            //设置 session 时长
+            $scope.sessionLengthChange = function(step){
+                if(isOnOrOff===1){  //如果运行计时中，则不允许设置
+                    return;
+                }
+
+                //设置时长
+                var newSessionMin = $scope.sessionMin+step;
+                if(newSessionMin<=30 && newSessionMin>=1){
+                    $scope.sessionMin = newSessionMin;
+                }
+                startMin = $scope.sessionMin;
+                startSec = 0;
+                $scope.sessionName = "Session";
+                $scope.timeLeft = $scope.sessionMin;
+
+                //重置进度条
+                counterSession = $scope.sessionMin * 60;
+                counterBreak = $scope.breakMin * 60;
+                baseCounterBreak = counterBreak;
+                baseCounterSession = counterSession;
+            };
+
+
+
+            //设置 break 时长
+            $scope.breakLengthChange = function(step){
+                if(isOnOrOff===1){  //如果运行计时中，则不允许设置
+                    return;
+                }
+
+                //设置时长
+                var newBreakMin = $scope.breakMin + step;
+                if(newBreakMin<=10 && newBreakMin>=1){
+                    $scope.breakMin = newBreakMin;
+                }
+                startMin = $scope.sessionMin;
+                startSec = 0;
+                $scope.sessionName = "Break";
+                $scope.timeLeft = $scope.breakMin;
+
+                //重置进度条
+                counterSession = $scope.sessionMin * 60;
+                counterBreak = $scope.breakMin * 60;
+                baseCounterBreak = counterBreak;
+                baseCounterSession = counterSession;
+            };
+
+
+            //设置 spead 速度
+            $scope.speadChange = function(step){
+                if(isOnOrOff===1){  //如果运行计时中，则不允许设置
+                    return;
+                }
+
+                //设置速度
+                var newSpead = $scope.spead + step;
+                if(newSpead<=1000 && newSpead>=100){
+                    $scope.spead = newSpead;
+                }
+            };
+
+            function inte() {
+
+
+                //周期性执行
+                mytimer = $interval(function () {
+
+
+
+                    //显示倒计时
+                    if(startSec !== 0){
+                        startSec--;
+                    }
+                    else{
+                        if(startMin !== 0){
+                            startMin--;
+                            startSec=59;
+                        }
+                        else{
+                            if(status === 1){
+                                startMin = $scope.breakMin-1;
+                                startSec = 59;
+                                status = 0;
+                            }
+                            else if(status === 0){
+                                startMin = $scope.sessionMin-1;
+                                startSec = 59;
+                                status = 1;
+                            }
+                        }
+                    }
+                    $scope.timeLeft = startMin + ":" + startSec;
+
+
+
+                    if(status === 0){
+                        //显示 Break! 字样
+                        $scope.sessionName = "Break!";
+
+                        //画进度条
+                        counterSession = $scope.sessionMin * 60;
+                        counterBreak--;
+                        $('#pomodoro > span > span').css('height', (1-(counterBreak/baseCounterBreak))*spanHeight+'px');
+                    }
+                    if(status === 1){
+                        //显示 Session 字样
+                        $scope.sessionName = "Session";
+
+                        //画进度条
+                        counterBreak = $scope.breakMin * 60;
+                        counterSession--;
+                        $('#pomodoro > span > span').css('height', (1-(counterSession/baseCounterSession))*spanHeight+'px');
+                    }
+
+
+//                    console.info("周期执行中.."+ "counterBreak:" + counterBreak + " counterSession:" + counterSession);
+
+
+                },$scope.spead);
+
+            }
+
+
+
+        });
+
+
+
+        $(document).ready(function () {
+
+        });
+
+    </script>
+
+
+</head>
+<body>
+
+
+<div id="main" class="container" data-ng-app="clockTimer" ng-controller="myCtrl">
+    <div class="row">
+        <h1 class="col-xs-12">FreeCodeCamp</h1>
+        <p class="col-xs-6">
+            BREAK LENGTH
+        </p>
+        <p class="col-xs-6">
+            SESSION LENGTH
+        </p>
+        <div id="breakLen" class="col-xs-6">
+            <div class="row">
+                <button class="col-xs-1" ng-click="breakLengthChange(-1)">-</button>
+                <div ng-bind="breakMin" class="col-xs-10"></div>
+                <button class="col-xs-1" ng-click="breakLengthChange(1)">+</button>
+            </div>
+        </div>
+        <div id="sessionLen" class="col-xs-6">
+            <div class="row">
+                <button class="col-xs-1" ng-click="sessionLengthChange(-1)">-</button>
+                <div ng-bind="sessionMin" class="col-xs-10"></div>
+                <button class="col-xs-1" ng-click="sessionLengthChange(1)">+</button>
+            </div>
+        </div>
+        <p class="col-xs-6">
+            SPEAD
+        </p>
+        <div class="clearfix"></div>
+        <div id="spead" class="col-xs-6">
+            <div class="row">
+                <button class="col-xs-1" ng-click="speadChange(-100)">-</button>
+                <div ng-bind="spead" class="col-xs-10"></div>
+                <button class="col-xs-1" ng-click="speadChange(100)">+</button>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div id="pomodoro">
+                <span><span></span></span>
+                <div  class="row">
+                    <div ng-bind="sessionName" class="col-xs-12">
+                        sessionName
+                    </div>
+                    <div ng-bind="timeLeft" class="col-xs-12" >
+                        timeLeft
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
