@@ -1,0 +1,167 @@
+body,h1,h2,h3,h4,h5,p,dl,dd,ul,ol,form,input,textarea,th,td,select,li { margin:0; padding:0}
+h1,h2,h3 { font-weight: bold;}
+em { font-style:normal;} 					/* <!------将em强调标签里的字体设为普通------> */
+li { list-style:none;} 							/* <!------列表项开头的标记去掉------->*/
+a { text-decoration:none; margin: 0;}							/* <!------文本修饰，不要下划线------> */
+img { border:none; vertical-align:top;}				/* <!------垂直对齐：top------> */
+input {border:none;}
+table { border-collapse:collapse;}					/* <!------表格边框合并（取消两单元格间的间隙）------> */
+input, textarea { outline:none;}					/* <!------输入字段、多行文本输入框：轮廓（边框外的一条线）为none-----> */
+textarea { resize:none; overflow:auto;}				/* <!-------不允许拖拉文本框（resize）。如果内容被修剪，则浏览器会显示滚动条（overflow）。-----> */
+body { font-size:12px; font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;}
+button { background-color: inherit; border: none;}
+
+/*--------------------------------------------*/
+#main h1, #main h2
+{
+    color: #FFF;
+}
+
+
+body{
+    background-color: #999!important;
+}
+
+
+
+#main{
+    width: 900px;
+}
+
+
+
+#main h1{
+    font-family: 'Pacifico';
+    text-align: center;
+    font-size: 4.6em;
+    margin: 60px 0 40px;
+    font-weight: bolder;
+}
+
+#main h2{
+    font-family: 'Pacifico';
+    text-align: center;
+    font-size: 2.4em;
+    margin: 0 0 30px;
+    font-weight: bolder;
+}
+
+#tickBtn, #crossBtn{
+    height: 130px;
+    margin: 24px -3px 10px;
+    border: dashed 2px #eee;
+    text-align: center;
+}
+
+
+#tickBtn > i{
+    color: #FFF;
+    font-size: 100px;
+    line-height: 130px;
+}
+
+#tickBtn.choose > i{
+    font-size: 130px;
+}
+
+#crossBtn > i{
+    color: #FFF;
+    font-size: 60px;
+    line-height: 130px;
+    font-weight: bolder;
+}
+
+#crossBtn.choose > i{
+    font-size: 80px;
+}
+
+.choose{
+    height: 140px!important;
+    border: solid 2px #eee!important;
+    margin: 17px -7px 7px!important;
+}
+
+#tickResult, #crossResult{
+    background-color: #bbb;
+    height: 300px;
+    text-align: center;
+    line-height: 300px;
+    font-size: 90px;
+    color: #FFF;
+    margin: 0;
+}
+
+#grids{
+    margin: 20px 50px;
+}
+
+#grids .icon-selected{
+    color: #FFF;
+    font-size: 130px;
+    line-height: 130px;
+}
+
+
+#grids .icon-close{
+    color: #FFF;
+    font-size: 80px;
+    line-height: 130px;
+    font-weight: bolder;
+}
+
+#grids > div{
+    text-align: center;
+    line-height: 134px;
+    height: 140px;
+    border: solid 3px #eee;
+}
+
+
+.loss{
+    color: #bfbfbf!important;
+}
+
+.win{
+    color: #fff!important;
+}
+
+
+#grids #grid_1{
+    border-left-width: 0;
+    border-top-width: 0;
+}
+
+#grids #grid_2{
+    border-top-width: 0;
+}
+
+#grids #grid_3{
+    border-right-width: 0;
+    border-top-width: 0;
+}
+
+#grids #grid_4{
+    border-left-width: 0;
+}
+
+#grids #grid_5{
+
+}
+
+#grids #grid_6{
+    border-right-width: 0;
+}
+
+#grids #grid_7{
+    border-left-width: 0;
+    border-bottom-width: 0;
+}
+
+#grids #grid_8{
+    border-bottom-width: 0;
+}
+
+#grids #grid_9{
+    border-right-width: 0;
+    border-bottom-width: 0;
+}

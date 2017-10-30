@@ -1,0 +1,353 @@
+﻿<!--此案例使用bootstrap3。-->
+<!--myworking-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>井字过三关</title>
+
+
+    <link href="myworkingForCodepen.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="bootstrap-3.3.7/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="font_tbmp45ixd6de7b9/iconfont.css" rel="stylesheet">
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+
+
+    <script>
+        var typeOfSymbol = null;    //符号类型，0表示勾√，1表示叉×
+        var tickPositions = "";     //勾√下子的位置
+        var crossPositions = "";    //叉×下子的位置
+        var isStart = false;        //此局是否已开始
+        var isFinish = false;       //此局是否结束
+        var usedNum = [];           //已下子的格
+        var winPosition = [];       //导致赢出的三个格子号码
+
+
+        // 如果九宫格三格连成一线，则返回 true ，否则返回 false。如isWin("6943")，由于3、6、9连成一线，所以返回 true。
+        var isWin = function (str) {
+            var expressions = [ /(1|2|3)/g , /(4|5|6)/g, /(7|8|9)/g, /(1|4|7)/g, /(2|5|8)/g, /(3|6|9)/g, /(1|5|9)/g, /(3|5|7)/g];
+            for(var i=0, leni=expressions.length; i<leni; i++){
+                var mat = str.match(expressions[i]);
+                if(mat!==null){
+                    if(mat.length === 3){
+                        console.log("win " + str.match(expressions[i]));
+                        winPosition = str.match(expressions[i]);
+                        return true;
+                    }
+                }
+            }
+            return false;
+        };
+
+
+
+
+        //根据点击的格子id属性获取格子号码
+        var getNumOfGrid = function (gridId) {
+            switch (gridId){
+                case "grid_1": return 1; break;
+                case "grid_2": return 2; break;
+                case "grid_3": return 3; break;
+                case "grid_4": return 4; break;
+                case "grid_5": return 5; break;
+                case "grid_6": return 6; break;
+                case "grid_7": return 7; break;
+                case "grid_8": return 8; break;
+                case "grid_9": return 9; break;
+                default : return null;
+            }
+        };
+
+
+        //根据格子号码获取格子id属性
+        var getIdOfGrid = function (num) {
+            switch (num){
+                case 1: return "grid_1"; break;
+                case 2: return "grid_2"; break;
+                case 3: return "grid_3"; break;
+                case 4: return "grid_4"; break;
+                case 5: return "grid_5"; break;
+                case 6: return "grid_6"; break;
+                case 7: return "grid_7"; break;
+                case 8: return "grid_8"; break;
+                case 9: return "grid_9"; break;
+                default : return null;
+            }
+        };
+
+
+        //玩家画 × √ 下子
+        var draw = function () {
+
+            console.log("---------------------------------------------------------");
+
+
+            if(typeOfSymbol===null){    //如果没选好所使用的图案就禁止画
+                alert("请选择√或×。");
+                return;
+            }
+            if(isFinish){              //如果此局已结束就禁止再下子
+                alert("此局已结束！点选勾或叉重置棋盘！");
+                return;
+            }
+            if(this.children.length>0){ //如果该格已有图案就禁止画
+                return;
+            }
+
+
+
+            isStart = true;
+            var child = document.createElement('i');
+            if(typeOfSymbol===0){
+                child.setAttribute("class","icon iconfont icon-selected");
+                tickPositions += getNumOfGrid(this.id);
+                usedNum.push(getNumOfGrid(this.id));
+            }
+            else if(typeOfSymbol===1){
+                child.setAttribute("class","icon iconfont icon-close");
+                crossPositions += getNumOfGrid(this.id);
+                usedNum.push(getNumOfGrid(this.id));
+            }
+            this.append(child);
+
+
+
+
+
+            checkSomeoneWin();      //检查是否有一方赢了
+
+            if(!isFinish){
+                AIDraw();
+            }
+
+
+            console.log('usedNum:' + usedNum);
+            console.log('tickPositions:' + tickPositions);
+            console.log('crossPositions:' + crossPositions);
+
+
+
+
+        };
+
+
+
+        //对导致胜出的那三个格子着色
+        var putColWinGrid = function () {
+            $("#grids > div > i").each(function (i, val) {
+                val.setAttribute("class", val.getAttribute("class") + " loss");
+            });
+            for(var i=0,leni=winPosition.length; i<leni; i++){
+                winPosition.push(getIdOfGrid(Number(winPosition[i])));
+            }
+            var selector1 = "#"+winPosition[3]+" > i, #"+winPosition[4]+" > i, #"+winPosition[5]+" > i";
+            $(selector1).each(function (i, val) {
+                val.setAttribute("class", val.getAttribute("class") + " win")
+            });
+        };
+
+
+
+
+        //检查是否有一方赢了
+        var checkSomeoneWin = function () {
+            console.log("检查有没有人赢了");
+            if(isWin(tickPositions)){   //检查勾√一方是否赢了
+                isFinish = true;
+                $("#tickResult")[0].innerText = "胜";
+                $("#crossResult")[0].innerText = "负";
+                putColWinGrid();
+                return;
+            }
+            if(isWin(crossPositions)){  //检查叉×一方是否赢了
+                isFinish = true;
+                $("#tickResult")[0].innerText = "负";
+                $("#crossResult")[0].innerText = "胜";
+                putColWinGrid();
+                return;
+            }
+            if(usedNum.length===9){
+                isFinish = true;
+                $("#tickResult")[0].innerText = "平";
+                $("#crossResult")[0].innerText = "平";
+            }
+        };
+
+
+        //电脑下子
+        var AIDraw = function () {
+            var min = 1;
+            var max = 9;
+            var ran = Math.floor(Math.random() * (max - min + 1)) + min;    //随机生成1-9
+            console.log("生成随机数："+ran);
+
+            for(var i=0,leni=usedNum.length; i<leni; i++){
+                if(ran===usedNum[i]){
+                    AIDraw();
+                    return;
+                }
+            }
+
+            console.log(getIdOfGrid(ran));
+            var child = document.createElement('i');
+            if(typeOfSymbol===0){                       //如果玩家选的是勾√，则电脑话叉×
+                child.setAttribute("class","icon iconfont icon-close");
+                crossPositions += ran;
+            }
+            else if(typeOfSymbol===1){                  //如果玩家选的是叉×，则电脑话勾√
+                child.setAttribute("class","icon iconfont icon-selected");
+                tickPositions += ran;
+            }
+            document.getElementById(getIdOfGrid(ran)).append(child);
+
+
+            usedNum.push(ran);
+
+            console.log("此时电脑下完了一子");
+            checkSomeoneWin();      //检查是否有一方赢了
+        }
+
+
+        //重置清理棋盘
+        var resetGrids = function () {
+            typeOfSymbol = null;
+            tickPositions = "";
+            crossPositions = "";
+            isStart = false;
+            isFinish = false;
+            $("#grids > div").map(function (index,curVal) {
+                curVal.innerHTML = "";
+            })
+            $('#crossBtn')[0].setAttribute("class","row");
+            $('#tickBtn')[0].setAttribute("class","row");
+            $("#tickResult")[0].innerText = "go";
+            $("#crossResult")[0].innerText = "go";
+            usedNum = [];
+        };
+
+
+
+        $(document).ready(function () {
+
+            //选择勾√图案
+            $('#tickBtn')[0].onclick = function () {
+                if(isStart && !isFinish){    //如果此局已经下过子就不能再选择图案
+                    return;
+                }
+                this.setAttribute("class","row choose");
+                $('#crossBtn')[0].setAttribute("class","row");
+                typeOfSymbol = 0;
+
+                //重置棋盘
+                if(isFinish){
+                    resetGrids();
+                }
+            };
+            //选择叉×图案
+            $('#crossBtn')[0].onclick = function () {
+                if(isStart && !isFinish){    //如果此局已经下过子就不能再选择图案
+                    return;
+                }
+                this.setAttribute("class","row choose");
+                $('#tickBtn')[0].setAttribute("class","row");
+                typeOfSymbol = 1;
+
+                //重置棋盘
+                if(isFinish){
+                    resetGrids();
+                }
+            };
+
+
+            //给井格添加画图案的事件
+            var grids = $('#grids > div');
+            grids.map(function (index,curVal) {
+                curVal.onclick = draw;
+            });
+        });
+
+    </script>
+
+
+</head>
+<body>
+
+
+<div id="main" class="container">
+    <div class="row">
+        <h1 class="col-xs-12">井字过三关</h1>
+        <h2 class="col-xs-12">Tic-tac-toe</h2>
+        <div class="col-xs-2">
+            <div class="row " id="tickBtn">
+                <i class="icon iconfont icon-selected"></i>
+            </div>
+            <div class="row" id="tickResult">
+                go
+            </div>
+        </div>
+        <div class="col-xs-8">
+            <div class="row" id="grids">
+                <div class="col-xs-4" id="grid_1">
+                    <!--<i class="icon iconfont icon-selected"></i>-->
+                </div>
+                <div class="col-xs-4" id="grid_2">
+                    <!--<i class="icon iconfont icon-close"></i>-->
+                </div>
+                <div class="col-xs-4" id="grid_3">
+                    <!--<i class="icon iconfont icon-close"></i>-->
+                </div>
+                <div class="col-xs-4" id="grid_4">
+                    <!--<i class="icon iconfont icon-selected"></i>-->
+                </div>
+                <div class="col-xs-4" id="grid_5">
+                    <!--<i class="icon iconfont icon-selected"></i>-->
+                </div>
+                <div class="col-xs-4" id="grid_6">
+                    <!--<i class="icon iconfont icon-close"></i>-->
+                </div>
+                <div class="col-xs-4" id="grid_7">
+                    <!--<i class="icon iconfont icon-selected"></i>-->
+                </div>
+                <div class="col-xs-4" id="grid_8">
+                    <!--<i class="icon iconfont icon-selected"></i>-->
+                </div>
+                <div class="col-xs-4" id="grid_9">
+                    <!--<i class="icon iconfont icon-close"></i>-->
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="row " id="crossBtn">
+                <i class="icon iconfont icon-close"></i>
+            </div>
+            <div class="row" id="crossResult">
+                go
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
