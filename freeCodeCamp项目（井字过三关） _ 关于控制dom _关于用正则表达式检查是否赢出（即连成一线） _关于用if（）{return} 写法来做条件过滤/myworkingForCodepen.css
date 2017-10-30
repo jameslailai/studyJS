@@ -56,24 +56,21 @@ body{
 
 #tickBtn > i{
     color: #FFF;
-    font-size: 100px;
+    font-size: 80px;
     line-height: 130px;
 }
 
-#tickBtn.choose > i{
-    font-size: 130px;
+#crossBtn.choose > i, #tickBtn.choose > i{
+    font-size: 90px;
 }
 
 #crossBtn > i{
     color: #FFF;
-    font-size: 60px;
+    font-size: 80px;
     line-height: 130px;
     font-weight: bolder;
 }
 
-#crossBtn.choose > i{
-    font-size: 80px;
-}
 
 .choose{
     height: 140px!important;
@@ -95,19 +92,13 @@ body{
     margin: 20px 50px;
 }
 
-#grids .icon-selected{
+#grids > div > i{
     color: #FFF;
-    font-size: 130px;
+    font-size: 100px;
     line-height: 130px;
 }
 
 
-#grids .icon-close{
-    color: #FFF;
-    font-size: 80px;
-    line-height: 130px;
-    font-weight: bolder;
-}
 
 #grids > div{
     text-align: center;
